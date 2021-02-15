@@ -1,0 +1,287 @@
+<html>
+    <head>
+        <title>Dog HTML printer</title>
+
+                <link rel="stylesheet" type="text/css" href="assets/style.66301ec3bfd7f88c5e773ffc990c44b8b43624bc.css" media="all" />
+    </head>
+
+    <body>
+        <div class="container-fluid h-100 mh-100">
+            <div class="row main-row h-100 mh-100">
+                <div class="col-2 d-none d-md-flex flex-column h-100 mh-100">
+                    <div class="row align-items-center top-bar bg-secondary bg-gradient top-bar">
+                        <div class="col">
+                            <div class="position-relative">
+                                <input type="text" class="form-control" placeholder="Search" id="autoCompleteSearch" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row flex-grow-1 overflow-auto bg-light">
+                        <div class="col" id="tree"></div>
+                    </div>
+                </div>
+                <div class="col-10 border-start h-100 mh-100 overflow-auto d-flex flex-column content">
+                    <div class="row">
+                        <nav class="col top-bar navbar navbar-expand-lg navbar-light bg-light small shadow-sm border-bottom">
+    <div class="container-fluid px-0">
+        <a class="navbar-brand" href="index.html">Dog HTML printer</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav">
+                                                            <li class="nav-item">
+                        <a class="nav-link" href="index.html"
+                            >
+                            Overview
+                        </a>
+                    </li>
+                    
+                                                            <li class="nav-item">
+                        <a class="nav-link active"
+                            href="readme.html"  aria-current="page" >
+                            Readme
+                        </a>
+                    </li>
+                    
+                                                            <li class="nav-item">
+                        <a class="nav-link"
+                            href="namespaces.html" >
+                            Namespaces
+                        </a>
+                    </li>
+                    
+                                                            <li class="nav-item">
+                        <a class="nav-link"
+                            href="classes.html" >
+                            Classes
+                        </a>
+                    </li>
+                    
+                                        
+                                        
+                                        
+                                                        </ul>
+            </ul>
+        </div>
+    </div>
+</nav>                    </div>
+
+
+<div class="row pt-4">
+    <div class="col-12 col-md-9 markdown">
+        <h1>csoellinger/dog-html-printer<a id="user-content-csoellingerdog-html-printer" href="#csoellingerdog-html-printer" name="csoellingerdog-html-printer" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h1>
+<p><strong>HTML printer for <a href="https://github.com/klitsche/dog">Dog</a>, a simple code documentation generator.</strong></p>
+<p><a href="https://github.com/csoellinger/dog-html-printer"><img src="https://img.shields.io/badge/source-csoellinger/dog--html--printer-blue.svg?style=flat-square" alt="Source Code" /></a>
+<a href="https://packagist.org/packages/csoellinger/dog-html-printer"><img src="https://img.shields.io/packagist/v/csoellinger/dog-html-printer.svg?style=flat-square&amp;label=release" alt="Download Package" /></a>
+<a href="https://php.net"><img src="https://img.shields.io/packagist/php-v/csoellinger/dog-html-printer.svg?style=flat-square&amp;colorB=%238892BF" alt="PHP Programming Language" /></a>
+<a href="https://github.com/csoellinger/dog-html-printer/blob/master/LICENSE"><img src="https://img.shields.io/packagist/l/csoellinger/dog-html-printer.svg?style=flat-square&amp;colorB=darkcyan" alt="Read License" /></a>
+<a href="https://packagist.org/packages/csoellinger/dog-html-printer/stats"><img src="https://img.shields.io/packagist/dt/csoellinger/dog-html-printer.svg?style=flat-square&amp;colorB=darkmagenta" alt="Package downloads on Packagist" /></a></p>
+<!-- [![Build Status](https://travis-ci.com/csoellinger/dog-html-printer.svg?branch=main)](https://travis-ci.com/csoellinger/dog-html-printer) -->
+<!-- [![Build Status](https://img.shields.io/github/workflow/status/csoellinger/dog-html-printer/CI?label=CI&logo=github&style=flat-square)](https://github.com/csoellinger/dog-html-printer/actions?query=workflow%3ACI) -->
+<!-- [![Codecov Code Coverage](https://img.shields.io/codecov/c/gh/csoellinger/dog-html-printer?label=codecov&logo=codecov&style=flat-square)](https://codecov.io/gh/csoellinger/dog-html-printer) -->
+<!-- [![Psalm Type Coverage](https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Fcsoellinger%2Fdog-html-printer%2Fcoverage)](https://shepherd.dev/github/csoellinger/dog-html-printer) -->
+<!-- [![Chat with the maintainers](https://img.shields.io/badge/phpc.chat-%23csoellinger-darkslateblue?style=flat-square)](https://phpc.chat/channel/csoellinger) -->
+<ul>
+<li>
+<a href="#about">About</a>
+</li>
+<li>
+<a href="#installation">Installation</a>
+</li>
+<li>
+<a href="#usage">Usage</a>
+</li>
+<li>
+<a href="#documentation">Documentation</a>
+</li>
+<li>
+<a href="#contributing">Contributing</a>
+<ul>
+<li>
+<a href="#known-issues">Known Issues</a>
+</li>
+<li>
+<a href="#todo">ToDo</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#copyright-and-license">Copyright and License</a>
+</li>
+</ul>
+<h2>About<a id="user-content-about" href="#about" name="about" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
+<p>A HTML printer for <a href="https://github.com/klitsche/dog">Dog PHP Documentation Generator</a>. It is heavily inspired by Doctum, phpDox and other good projects. The printer is Work-In-Progress at the moment but it is already very configurable and has a nice look with many features like: Tree Navigation, Source Code implementation, PhpLoc overview, readme renderer and some more are planned. Take a look at the todo section.</p>
+<h2>Installation<a id="user-content-installation" href="#installation" name="installation" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
+<p>First you need to install <a href="https://github.com/klitsche/dog">Dog PHP Documentation Generator</a>. After it install this package as a dependency using <a href="https://getcomposer.org">Composer</a>.</p>
+<pre><code class="hljs bash">composer require --dev csoellinger/dog-html-printer</code></pre>
+<h2>Usage<a id="user-content-usage" href="#usage" name="usage" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
+<p>After you have installed <a href="https://github.com/klitsche/dog">Dog</a> and <a href="https://github.com/csoellinger/dog-html-printer">Dog HTML printer</a> you can customize your <em>.dog.yml</em> to use the new printer class.</p>
+<pre><code class="hljs yaml"><span class="hljs-comment"># Most configurations are by the dog package itself.</span>
+
+<span class="hljs-comment"># Title</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">'Dog HTML printer'</span>
+
+<span class="hljs-comment"># Relative or absolute paths to source files - plus patterns to include or exclude path pr files</span>
+<span class="hljs-attr">srcPaths:</span>
+  <span class="hljs-attr">'src':</span>
+    <span class="hljs-string">'/.*\.php$/'</span><span class="hljs-string">:</span> <span class="hljs-literal">true</span>
+
+<span class="hljs-comment"># Configure enrichers to add extra data to project or element items</span>
+<span class="hljs-comment"># phploc is supported by DogHtmlPrinter</span>
+<span class="hljs-attr">enrichers:</span>
+    <span class="hljs-attr">phploc:</span>
+        <span class="hljs-attr">class:</span> <span class="hljs-string">Klitsche\Dog\Enrichers\PHPLOC\PHPLOCEnricher</span>
+        <span class="hljs-attr">file:</span> <span class="hljs-string">phploc.json</span>
+
+<span class="hljs-comment"># Set the printer class to DogHtmlPrinter</span>
+<span class="hljs-attr">printerClass:</span> <span class="hljs-string">'CSoellinger\DogHtmlPrinter\HtmlPrinter'</span>
+
+<span class="hljs-comment"># Printer configuration</span>
+<span class="hljs-attr">printerConfig:</span>
+    <span class="hljs-comment"># Set a custom template path. If you want do this, best way would be to copy the resources/templates dir</span>
+    <span class="hljs-comment"># from this package to you project dir and then customize the templates.</span>
+    <span class="hljs-comment"># templatesPath: 'resources/templates'</span>
+
+    <span class="hljs-comment"># If you want add a readme file</span>
+    <span class="hljs-attr">readme:</span> <span class="hljs-string">'README.md'</span>
+
+    <span class="hljs-comment"># Include source code</span>
+    <span class="hljs-attr">includeSource:</span> <span class="hljs-literal">true</span>
+
+    <span class="hljs-comment"># Ignore code marked as @internal</span>
+    <span class="hljs-attr">ignoreInternal:</span> <span class="hljs-literal">true</span>
+
+    <span class="hljs-comment"># Ignore private things (methods, properties,...)</span>
+    <span class="hljs-attr">ignorePrivate:</span> <span class="hljs-literal">true</span>
+
+    <span class="hljs-comment"># Minify CSS and JS at output</span>
+    <span class="hljs-attr">minifyCssAndJs:</span> <span class="hljs-literal">true</span>
+
+    <span class="hljs-comment"># Minify HTML at output. Slows down the build!!</span>
+    <span class="hljs-attr">minifyHtml:</span> <span class="hljs-literal">false</span>
+
+<span class="hljs-comment"># Relative or absolute path to output directory</span>
+<span class="hljs-attr">outputDir:</span> <span class="hljs-string">'docs/html'</span>
+
+<span class="hljs-comment"># Optional cache dir</span>
+<span class="hljs-attr">cacheDir:</span> <span class="hljs-string">'build/cache'</span>
+
+<span class="hljs-comment"># Enable or disable debug mode - helps when tweaking templates</span>
+<span class="hljs-attr">debug:</span> <span class="hljs-literal">false</span></code></pre>
+<p>Right after customizing the configuration you can start building your documentation.</p>
+<pre><code class="hljs bash">vendor/bin/dog</code></pre>
+<h2>Documentation<a id="user-content-documentation" href="#documentation" name="documentation" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
+<p><a href="https://csoellinger.github.io/dog-html-printer">https://csoellinger.github.io/dog-html-printer</a></p>
+<h2>Contributing<a id="user-content-contributing" href="#contributing" name="contributing" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
+<p>Contributions are welcome! To contribute, please familiarize yourself with
+<a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+<p>If you found a bug or have an idea feel free to post it here on github.</p>
+<h3>Known Issues<a id="user-content-known-issues" href="#known-issues" name="known-issues" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> Linking inside readme to other markdown files causes problems</li>
+<li><input disabled="" type="checkbox"> Collapse tree navigation also selects item</li>
+</ul>
+<h3>ToDo<a id="user-content-todo" href="#todo" name="todo" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h3>
+<ul>
+<li><input disabled="" type="checkbox"> Generate local static search</li>
+<li><input disabled="" type="checkbox"> Include coverage data to printer output</li>
+<li><input disabled="" type="checkbox"> Include testing data to printer output</li>
+<li><input disabled="" type="checkbox"> Project testing</li>
+<li><input disabled="" type="checkbox"> Mobile optimization</li>
+<li><input disabled="" type="checkbox"> Replace or customize bootstrap with only needed stuff</li>
+<li><input disabled="" type="checkbox"> Sub-Dir layout config instead of flat dir output.</li>
+<li><input disabled="" type="checkbox"> Optimize
+<ul>
+<li>Strip bootstrap down to only needed components</li>
+<li>Some code parts are a bit &quot;hacky&quot;</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> Theming
+<ul>
+<li>Append custom css via printer config</li>
+<li>Theming system to use a new theme without writing a new printer class (like &quot;custom templates path&quot;)</li>
+</ul>
+</li>
+</ul>
+<h2>Copyright and License<a id="user-content-copyright-and-license" href="#copyright-and-license" name="copyright-and-license" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
+<p>The csoellinger/dog-html-printer library is copyright © <a href="https://github.com/CSoellinger">Christopher Söllinger</a>
+and licensed for use under the terms of the
+MIT License (MIT). Please see <a href="LICENSE">LICENSE</a> for more information.</p>
+
+    </div>
+    <div class="d-none d-md-block col-3">
+    <div class="w-100 border p-2 position-sticky" style="top: 2rem;">
+        <div class="small text-muted">On this page</div>
+
+                    
+                            <ul class="list-unstyled mb-0 small">
+                                            <li>
+                            <a href="#about">About</a>
+
+                                                    </li>
+                                            <li>
+                            <a href="#installation">Installation</a>
+
+                                                    </li>
+                                            <li>
+                            <a href="#usage">Usage</a>
+
+                                                    </li>
+                                            <li>
+                            <a href="#documentation">Documentation</a>
+
+                                                    </li>
+                                            <li>
+                            <a href="#contributing">Contributing</a>
+
+                                                                            <ul class="">
+                                            <li>
+                            <a href="#known-issues">Known Issues</a>
+
+                                                    </li>
+                                            <li>
+                            <a href="#todo">ToDo</a>
+
+                                                    </li>
+                                    </ul>
+            
+                                                    </li>
+                                            <li>
+                            <a href="#copyright-and-license">Copyright and License</a>
+
+                                                    </li>
+                                    </ul>
+            
+                <ul class="list-unstyled mb-0 small">
+        </ul>
+    </div>
+</div>
+</div>
+
+                <div class="row flex-grow-1"><div class="col">&nbsp;</div></div>
+                <div class="row">
+                    <div class="col text-muted text-end small">
+                        Generated by <a href="https://klitsche.github.io/dog/" target="_blank" class="text-reset text-decoration-underline">Dog, a slim source code documentation generator</a>.
+                        Printed with <a href="https://github.com/CSoellinger/dog-html-printer" target="_blank" class="text-reset text-decoration-underline">Dog-HtmlPrinter</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <script>
+            var treeData = JSON.parse('[{"id":"\CSoellinger\DogHtmlPrinter","name":"DogHtmlPrinter","elementType":"namespace","type":"folder","open":false,"selected":false,"parent_id":0,"link":"namespace_csoellinger_doghtmlprinter.html","children":[{"id":"\CSoellinger\DogHtmlPrinter\HtmlPrinter","name":"HtmlPrinter","elementType":"class","type":"file","open":false,"selected":false,"parent_id":"\CSoellinger\DogHtmlPrinter","link":"class_csoellinger_doghtmlprinter_htmlprinter.html"},{"id":"\CSoellinger\DogHtmlPrinter\Twig","name":"Twig","elementType":"namespace","type":"folder","open":false,"selected":false,"parent_id":"\CSoellinger\DogHtmlPrinter","link":"namespace_csoellinger_doghtmlprinter_twig.html","children":[{"id":"\CSoellinger\DogHtmlPrinter\Twig\MarkdownRuntimeLoader","name":"MarkdownRuntimeLoader","elementType":"class","type":"file","open":false,"selected":false,"parent_id":"\CSoellinger\DogHtmlPrinter\Twig","link":"class_csoellinger_doghtmlprinter_twig_markdownruntimeloader.html"},{"id":"\CSoellinger\DogHtmlPrinter\Twig\TwigUtil","name":"TwigUtil","elementType":"class","type":"file","open":false,"selected":false,"parent_id":"\CSoellinger\DogHtmlPrinter\Twig","link":"class_csoellinger_doghtmlprinter_twig_twigutil.html"}]}]}]');
+            var autoCompleteData = JSON.parse('[{"id":"CSoellinger\\\\DogHtmlPrinter","elementType":"namespace","link":"namespace_csoellinger_doghtmlprinter.html"},{"id":"CSoellinger\\\\DogHtmlPrinter\\\\HtmlPrinter","elementType":"class","link":"class_csoellinger_doghtmlprinter_htmlprinter.html"},{"id":"CSoellinger\\\\DogHtmlPrinter\\\\Twig","elementType":"namespace","link":"namespace_csoellinger_doghtmlprinter_twig.html"},{"id":"CSoellinger\\\\DogHtmlPrinter\\\\Twig\\\\MarkdownRuntimeLoader","elementType":"class","link":"class_csoellinger_doghtmlprinter_twig_markdownruntimeloader.html"},{"id":"CSoellinger\\\\DogHtmlPrinter\\\\Twig\\\\TwigUtil","elementType":"class","link":"class_csoellinger_doghtmlprinter_twig_twigutil.html"}]');
+
+            window.treeData = treeData;
+            window.autoCompleteData = autoCompleteData;
+        </script>
+
+                <script src="assets/script.c9b5808ea84761de92ff9a82841721c50b18869e.js"></script>
+    </body>
+</html>
