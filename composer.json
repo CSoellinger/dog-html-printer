@@ -11,7 +11,8 @@
         "Printer",
         "Output",
         "Twig",
-        "PhpDocumentor/Reflection"
+        "PhpDocumentor",
+        "Reflection"
     ],
     "license": "MIT",
     "authors": [
