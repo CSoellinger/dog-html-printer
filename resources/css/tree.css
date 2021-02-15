@@ -1,0 +1,120 @@
+/*
+ ** simple tree
+ */
+.simple-tree {
+    user-select: none;
+    -moz-user-select: none;
+}
+
+.simple-tree > details > summary {
+    display: none;
+}
+
+.simple-tree a,
+.simple-tree summary {
+    display: block;
+    width: fit-content;
+    width: -moz-fit-content;
+    outline: none;
+    cursor: pointer;
+}
+
+.simple-tree ::-webkit-details-marker {
+    display: none;
+}
+
+.simple-tree summary {
+    list-style-type: none;
+    background-color: var(--bs-light);
+    outline: none;
+}
+
+.simple-tree details > :not(details),
+.simple-tree details {
+    position: relative;
+}
+
+.simple-tree details :not(summary) {
+    margin-left: 20px;
+}
+
+.simple-tree details summary > a {
+    margin-left: 0;
+}
+
+.simple-tree.nodots details :not(summary) {
+    margin-left: 12px;
+}
+
+.simple-tree details::before,
+.simple-tree details > :not(details)::before {
+    content: "";
+    width: 10px;
+    display: block;
+    position: absolute;
+}
+
+.simple-tree details::before,
+.simple-tree details > :not(details)::before {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 2 2' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Crect x='0' y='0' width='1' height='1'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: left top;
+    background-size: 2px 2px;
+}
+
+.simple-tree.dark details::before,
+.simple-tree.dark details > :not(summary)::before {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 2 2' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Crect x='0' y='0' width='1' height='1' fill='white'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.simple-tree.nodots details::before,
+.simple-tree.nodots details > :not(summary)::before {
+    background-image: none;
+}
+
+.simple-tree details::before {
+    top: 0;
+    height: 100%;
+    background-repeat: repeat-y;
+    left: 6px;
+    z-index: 0;
+}
+
+.simple-tree details > :not(details)::before {
+    top: 12px;
+    height: calc(100% - 12px);
+    background-repeat: repeat-x;
+    left: -14px;
+}
+
+/* Icon Plus */
+.simple-tree details > summary::before {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Crect x='0' y='0' width='12' height='12' fill='white' stroke='gray' stroke-width='1'/%3E%3Cline x1='3' y1='6' x2='9' y2='6' stroke='black' stroke-width='2'/%3E%3Cline x1='6' y1='3' x2='6' y2='9' stroke='black' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: center center;
+    background-size: 12px 12px;
+    background-repeat: no-repeat;
+    top: 7px;
+    width: 12px;
+    height: 12px;
+    left: -20.5px;
+}
+
+/* Icon Minus */
+.simple-tree details[open] > summary::before {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle/%3E%3Cg%3E%3Crect x='0' y='0' width='12' height='12' fill='white' stroke='gray' stroke-width='1'/%3E%3Cline x1='3' y1='6' x2='9' y2='6' stroke='black' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* select tree */
+.select-tree .selected {
+    font-weight: bold;
+    z-index: 1;
+}
+
+.select-tree.dark .selected {
+    background-color: #3a484e;
+    border-color: #99defd;
+}
+
+/* Tree dark */
+.simple-tree.dark summary {
+    background-color: #444;
+}

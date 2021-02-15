@@ -1,0 +1,217 @@
+<div class="table-responsive">
+    <table class="table table-sm small">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="3" scope="col">Structure</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="75%">Namespaces</td>
+                <td width="15%" class="text-right">{{ project.data('phploc').namespaces }}</td>
+                <td width="10%" class="text-right"></td>
+            </tr>
+            <tr>
+                <td>Interfaces</td>
+                <td class="text-right">{{ project.data('phploc').interfaces }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>Traits</td>
+                <td class="text-right">{{ project.data('phploc').traits }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>Classes</td>
+                <td class="text-right">{{ project.data('phploc').classes }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Abstract Classes</td>
+                <td class="text-right">{{ project.data('phploc').abstractClasses }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').classes > 0 %}
+                        ({{ (100 - (((project.data('phploc').classes - project.data('phploc').abstractClasses) / project.data('phploc').classes) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Concrete Classes</td>
+                <td class="text-right">{{ project.data('phploc').concreteClasses }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').classes > 0 %}
+                        ({{ (100 - (((project.data('phploc').classes - project.data('phploc').concreteClasses) / project.data('phploc').classes) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Final Classes</td>
+                <td class="text-right">{{ project.data('phploc').finalClasses }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').concreteClasses > 0 %}
+                        ({{ (100 - (((project.data('phploc').concreteClasses - project.data('phploc').finalClasses) / project.data('phploc').concreteClasses) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Non-Final Classes</td>
+                <td class="text-right">{{ project.data('phploc').nonFinalClasses }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').concreteClasses > 0 %}
+                        ({{ (100 - (((project.data('phploc').concreteClasses - project.data('phploc').nonFinalClasses) / project.data('phploc').concreteClasses) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Methods</td>
+                <td class="text-right">{{ project.data('phploc').methods }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td colspan="3">&nbsp;&nbsp;Scope</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Non-Static Methods</td>
+                <td class="text-right">{{ project.data('phploc').nonStaticMethods }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').methods > 0 %}
+                        ({{ (100 - (((project.data('phploc').methods - project.data('phploc').nonStaticMethods) / project.data('phploc').methods) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Static Methods</td>
+                <td class="text-right">{{ project.data('phploc').staticMethods }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').methods > 0 %}
+                        ({{ (100 - (((project.data('phploc').methods - project.data('phploc').staticMethods) / project.data('phploc').methods) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">&nbsp;&nbsp;Visibility</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Public Methods</td>
+                <td class="text-right">{{ project.data('phploc').publicMethods }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').methods > 0 %}
+                        ({{ (100 - (((project.data('phploc').methods - project.data('phploc').publicMethods) / project.data('phploc').methods) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Protected Methods</td>
+                <td class="text-right">{{ project.data('phploc').protectedMethods }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').methods > 0 %}
+                        ({{ (100 - (((project.data('phploc').methods - project.data('phploc').protectedMethods) / project.data('phploc').methods) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Private Methods</td>
+                <td class="text-right">{{ project.data('phploc').privateMethods }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').methods > 0 %}
+                        ({{ (100 - (((project.data('phploc').methods - project.data('phploc').privateMethods) / project.data('phploc').methods) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Functions</td>
+                <td class="text-right">{{ project.data('phploc').functions }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Named Functions</td>
+                <td class="text-right">{{ project.data('phploc').namedFunctions }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').functions > 0 %}
+                        ({{ (100 - (((project.data('phploc').functions - project.data('phploc').namedFunctions) / project.data('phploc').functions) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Anonymous Functions</td>
+                <td class="text-right">{{ project.data('phploc').anonymousFunctions }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').functions > 0 %}
+                        ({{ (100 - (((project.data('phploc').functions - project.data('phploc').anonymousFunctions) / project.data('phploc').functions) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Constants</td>
+                <td class="text-right">{{ project.data('phploc').constants }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Global Constants</td>
+                <td class="text-right">{{ project.data('phploc').globalConstants }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').constants > 0 %}
+                        ({{ (100 - (((project.data('phploc').constants - project.data('phploc').globalConstants) / project.data('phploc').constants) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Class Constants</td>
+                <td class="text-right">{{ project.data('phploc').classConstants }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').constants > 0 %}
+                        ({{ (100 - (((project.data('phploc').constants - project.data('phploc').classConstants) / project.data('phploc').constants) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Public Constants</td>
+                <td class="text-right">{{ project.data('phploc').publicClassConstants }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').classConstants > 0 %}
+                        ({{ (100 - (((project.data('phploc').classConstants - project.data('phploc').publicClassConstants) / project.data('phploc').classConstants) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Non-Public Constants</td>
+                <td class="text-right">{{ project.data('phploc').nonPublicClassConstants }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').classConstants > 0 %}
+                        ({{ (100 - (((project.data('phploc').classConstants - project.data('phploc').nonPublicClassConstants) / project.data('phploc').classConstants) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

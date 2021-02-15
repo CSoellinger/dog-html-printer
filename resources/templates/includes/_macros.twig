@@ -1,0 +1,45 @@
+{% macro argumentsDetailTable(name, arguments) %}
+    <div class="{{ name }}-arguments {{ name }}-parameters px-2">
+        <h4 class="h5">Parameters</h4>
+
+        <div class="table-responsive">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th width="20%">Parameter</th>
+                        <th width="10%">Type</th>
+                        <th width="10%">Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for argument in arguments %}
+                        <tr>
+                            <td>{% if argument.isVariadic %}...{% endif %}{% if argument.byReference %}&amp;{% endif %}${{ argument.name }}</td>
+                            <td>{{ argument.type|linkFqsen }}</td>
+                            <td><i>{{ argument.default }}</i></td>
+                            <td>{{ argument.description|resolveDocblockLinks }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro returnDetails(name, returnType, returnDescription) %}
+    <div class="{{ name }}-return px-2">
+        <h4 class="h5">Return value</h4>
+
+        <div class="table-responsive">
+            <table class="table table-sm">
+                <tbody>
+                    <tr>
+                        <td width="40%">{{ returnType|linkFqsen }}</td>
+                        <td>{{ returnDescription|resolveDocblockLinks }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endmacro %}

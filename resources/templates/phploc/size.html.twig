@@ -1,0 +1,132 @@
+<div class="table-responsive">
+    <table class="table table-sm small">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="3" scope="col">Size</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="75%">Lines of Code (LOC)</td>
+                <td width="15%" class="text-right">{{ project.data('phploc').loc }}</td>
+                <td width="10%" class="text-right"></td>
+            </tr>
+            <tr>
+                <td>Comment Lines of Code (CLOC)</td>
+                <td class="text-right">{{ project.data('phploc').cloc }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').loc > 0 %}
+                        ({{ (100 - (((project.data('phploc').loc - project.data('phploc').cloc) / project.data('phploc').loc) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Non-Comment Lines of Code (NCLOC)</td>
+                <td class="text-right">{{ project.data('phploc').ncloc }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').loc > 0 %}
+                        ({{ (100 - (((project.data('phploc').loc - project.data('phploc').ncloc) / project.data('phploc').loc) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Logical Lines of Code (LLOC)</td>
+                <td class="text-right">{{ project.data('phploc').lloc }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').loc > 0 %}
+                        ({{ (100 - (((project.data('phploc').loc - project.data('phploc').lloc) / project.data('phploc').loc) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Classes</td>
+                <td class="text-right">{{ project.data('phploc').llocClasses }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').lloc > 0 %}
+                        ({{ (100 - (((project.data('phploc').lloc - project.data('phploc').llocClasses) / project.data('phploc').lloc) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Average Class Length</td>
+                <td class="text-right">{{ project.data('phploc').classLlocAvg|round }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minimum Class Length</td>
+                <td class="text-right">{{ project.data('phploc').classLlocMin|round }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Maximum Class Length</td>
+                <td class="text-right">{{ project.data('phploc').classLlocMax|round }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Average Method Length</td>
+                <td class="text-right">{{ project.data('phploc').methodLlocAvg|round }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minimum Method Length</td>
+                <td class="text-right">{{ project.data('phploc').methodLlocMin|round }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Maximum Method Length</td>
+                <td class="text-right">{{ project.data('phploc').methodLlocMax|round }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Average Methods Per Class</td>
+                <td class="text-right">{{ project.data('phploc').averageMethodsPerClass|round }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minimum Methods Per Class</td>
+                <td class="text-right">{{ project.data('phploc').minimumMethodsPerClass|round }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Maximum Methods Per Class</td>
+                <td class="text-right">{{ project.data('phploc').maximumMethodsPerClass|round }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Functions</td>
+                <td class="text-right">{{ project.data('phploc').llocFunctions }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').lloc > 0 %}
+                        ({{ (100 - (((project.data('phploc').lloc - project.data('phploc').llocFunctions) / project.data('phploc').lloc) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+                {# <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;Average Function Length</td>
+                    <td class="text-right">{{ project.data('phploc').classLlocAvg|round }}</td>
+                    <td class="text-right"></td>
+                </tr> #}
+            <tr>
+                <td>&nbsp;&nbsp;Not in classes or functions</td>
+                <td class="text-right">{{ project.data('phploc').llocGlobal }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').lloc > 0 %}
+                        ({{ (100 - (((project.data('phploc').lloc - project.data('phploc').llocGlobal) / project.data('phploc').lloc) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

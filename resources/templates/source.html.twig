@@ -1,0 +1,87 @@
+{% include "includes/_html-top.html.twig" with { activeFile: _self } %}
+
+{% include "includes/_breadcrumbs.html.twig" with {
+    elementType: object.elementType,
+    breadcrumbItems: object.fqsen|trim(rootNamespace() ,'left')|trim('\\()')|split('\\')|merge(['Source'])
+} %}
+
+<div class="row py-3">
+    <div class="col-12">
+        <p>
+            View source from file <i>{{ object.file.name }}</i>
+        </p>
+
+        <div class="d-flex flex-row sourcecode position-relative">
+            <div class="flex-shrink-1 text-center" style="overflow-x: auto;">
+                {% apply spaceless %}
+                    <code>
+                        {%- for sourceLine in object.file.source|split("\n") -%}
+                            <a name="line{{ loop.index }}"></a>
+                            <div class="line-nr-{{ loop.index }}">
+                                <a href="#line{{ loop.index }}" class="text-reset">{{ loop.index }}</a>
+                            </div>
+                        {%- endfor -%}
+                    </code>
+                {% endapply %}
+            </div>
+            <div class="ps-2">
+                {{ object.file.source|trim|highlightSource('php')|linkify }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function hashChanged() {
+        var lineHash = window.location.hash;
+        var lineNr = 0;
+
+        if (lineHash.match(/#line[0-9]*/)) {
+            lineNr = parseInt(lineHash.replace('#line', ''));
+        }
+
+        if (lineNr > 0) {
+            document
+                .querySelectorAll('.highlight-line')
+                .forEach(function (lineEl) {
+                    lineEl.remove();
+                });
+
+            var sourcecodeDiv = document.querySelector('.main-row > .content .sourcecode');
+            var sourceWidth = sourcecodeDiv.clientWidth;
+            var lineDiv = document.querySelector(`.main-row > .content .line-nr-${lineNr}`);
+
+            var highlightLine = document.createElement('div');
+            highlightLine.style.width = `${sourceWidth}px`;
+            highlightLine.style.height = `${lineDiv.getBoundingClientRect().height}px`;
+            highlightLine.style.top = `${(lineDiv.getBoundingClientRect().y - sourcecodeDiv.getBoundingClientRect().y) - 1}px`;
+            highlightLine.classList.add('highlight-line');
+            highlightLine.classList.add('border-1');
+
+            sourcecodeDiv.append(highlightLine);
+
+            lineDiv.scrollIntoView(true);
+        }
+
+        return lineNr;
+    }
+
+    if (window.location.hash) {
+        var callback = function () {
+            hashChanged();
+        };
+
+        if (
+            document.readyState === 'complete' ||
+            (document.readyState !== 'loading' && !document.documentElement.doScroll)
+        ) {
+            callback();
+        } else {
+            document.addEventListener('DOMContentLoaded', callback);
+        }
+    }
+
+    window.addEventListener('hashchange', hashChanged);
+</script>
+
+{% include "includes/_html-bottom.html.twig" with { activeFile: _self } %}

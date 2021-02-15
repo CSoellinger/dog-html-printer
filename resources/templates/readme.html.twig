@@ -1,0 +1,29 @@
+{% include "includes/_html-top.html.twig" with { activeFile: _self } %}
+
+
+<div class="row pt-4">
+    <div class="col-12 col-md-9 markdown">
+        {{readme|markdown_to_html|transformPrismHtml}}
+    </div>
+    {% embed "includes/_toc_sidebar.html.twig" %}
+        {% block index %}
+            {% macro toc(items, class) %}
+                <ul class="{{ class }}">
+                    {% for item in items %}
+                        <li>
+                            <a href="#{{item.name|urlize}}">{{item.name}}</a>
+
+                            {% if item.children %}
+                                {{ _self.toc(item.children) }}
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endmacro %}
+
+            {{ _self.toc(markdownHeadingsList(readme, 2)|arrayListToTree, 'list-unstyled mb-0 small') }}
+        {% endblock %}
+    {% endembed %}
+</div>
+
+{% include "includes/_html-bottom.html.twig" with { activeFile: _self } %}

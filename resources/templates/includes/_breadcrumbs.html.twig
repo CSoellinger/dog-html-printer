@@ -1,0 +1,35 @@
+<div class="row bg-light">
+    <nav class="col d-flex flex-row align-items-center small" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '\\';">
+        <div class="flex-shrink-1 me-2">
+            <span class="badge text-dark">{{ elementType|lower }}</span>
+        </div>
+        <ol class="breadcrumb my-2">
+            <li class="breadcrumb-item">
+                {% if breadcrumbItems %}
+                    <a href="{{ rootNamespace()|elementFilename }}">{{ rootNamespace()|trim('\\()') }}</a>
+                {% else %}
+                    {{ rootNamespace()|trim('\\()') }}
+                {% endif %}
+            </li>
+
+            {% for item in breadcrumbItems %}
+                <li class="breadcrumb-item{% if loop.last %} active{% endif %}">
+                    {% if loop.last %}
+                        {{ item }}
+                    {% else %}
+                        {% set tmp = breadcrumbItems|slice(0, loop.index)|join('\\') %}
+                        {% set navItem = project.namespaces["#{rootNamespace()}\\#{tmp}"] %}
+
+                        {% if not navItem %}
+                            {% set navItem = project.index.fqsenIndex["#{rootNamespace()}\\#{tmp}"] %}
+                        {% endif %}
+
+                        <a href="{{ navItem|elementFilename }}">
+                            {{ navItem.name }}
+                        </a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ol>
+    </nav>
+</div>

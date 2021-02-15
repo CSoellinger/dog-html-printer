@@ -1,0 +1,18 @@
+{% if project.data('phploc') %}
+    {% include "includes/_html-top.html.twig" with { activeFile: _self } %}
+
+    <div class="row">
+        <div class="col py-2">
+            <h2>Overview</h2>
+        </div>
+    </div>
+    <div class="row">
+        {% include "phploc.html.twig" %}
+    </div>
+
+    {% include "includes/_html-bottom.html.twig" with { activeFile: _self } %}
+{% elseif readme %}
+    {% include "readme.html.twig" with { activeFile: _self } %}
+{% else %}
+    {% include "namespaces.html.twig" with { activeFile: _self } %}
+{% endif %}

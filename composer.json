@@ -1,0 +1,70 @@
+{
+    "name": "csoellinger/dog-html-printer",
+    "type": "library",
+    "description": "HTML printer for Dog, a simple code documentation generator.",
+    "keywords": [
+        "Dog",
+        "PHP",
+        "Documentation",
+        "Generator",
+        "HTML",
+        "Printer",
+        "Output",
+        "Twig",
+        "PhpDocumentor/Reflection"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christopher Söllinger",
+            "email": "christopher.soellinger@gmail.com",
+            "homepage": "https://github.com/CSoellinger"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8",
+        "doctrine/inflector": "^2.0",
+        "klitsche/dog": "^0.4",
+        "league/commonmark": "^1.5",
+        "odan/twig-assets": "^3.2",
+        "scrivo/highlight.php": "dev-master",
+        "twig/markdown-extra": "^3.2",
+        "wyrihaximus/html-compress": "^4.1"
+    },
+    "require-dev": {
+        "ramsey/devtools": "^1.5"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "ramsey/conventional-commits": {
+            "configFile": "conventional-commits.json"
+        },
+        "ramsey/devtools": {
+            "analyze:phploc": {
+                "script": "@dev:analyze:phploc"
+            },
+            "command-prefix": "dev",
+            "report:phploc": {
+                "script": "@dev:report:phploc"
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "CSoellinger\\DogHtmlPrinter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CSoellinger\\Test\\DogHtmlPrinter\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "dev:analyze:phploc": "php ./bin/phploc.phar --count-tests src tests",
+        "dev:report:phploc": "php ./bin/phploc.phar --count-tests --log-json phploc.json src tests"
+    }
+}

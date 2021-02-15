@@ -1,0 +1,70 @@
+<a name="{{ name }}-{{ method.name }}"></a>
+<div class="row">
+    <div class="col detail-item {{ name }}">
+        <div class="d-flex {{ name }}-map map py-2 px-1" id="{{ name }}-{{ method.name }}">
+            <div class="flex-grow-1">
+                {%- apply highlightSource('php') -%}{% block map %}{% endblock %}{%- endapply -%}
+            </div>
+            {% block source %}{% endblock %}
+        </div>
+
+        {% if method.docBlock.summary or method.docBlock.description %}
+            <div class="{{ name }}-description mt-2 p-2">
+                {{ method.docBlock.summary|markdown_to_html|transformPrismHtml|resolveDocblockLinks }}
+
+                {% if method.docBlock.description %}
+                    <small>
+                        {{ method.docBlock.description|markdown_to_html|transformPrismHtml|resolveDocblockLinks }}
+                    </small>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if method.arguments is not null and method.arguments|length > 0 %}
+            <div class="{{ name }}-arguments {{ name }}-parameters px-2">
+                <h4 class="h5">Parameters</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th width="20%">Parameter</th>
+                                <th width="10%">Type</th>
+                                <th width="10%">Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for argument in method.arguments %}
+                                <tr>
+                                    <td>{% if argument.isVariadic %}...{% endif %}{% if argument.byReference %}&amp;{% endif %}${{ argument.name }}</td>
+                                    <td>{{ argument.type|linkFqsen }}</td>
+                                    <td><i>{{ argument.default }}</i></td>
+                                    <td>{{ argument.description|resolveDocblockLinks }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if method.returnType %}
+            <div class="method-return px-2">
+                <h4 class="h5">Return value</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                <td width="40%">{{ method.returnType|linkFqsen }}</td>
+                                <td>{{ method.returnDescription|resolveDocblockLinks }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+<div class="py-3">&nbsp;</div>

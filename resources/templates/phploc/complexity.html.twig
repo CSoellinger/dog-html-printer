@@ -1,0 +1,46 @@
+<div class="table-responsive">
+    <table class="table table-sm small">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="3" scope="col">Complexity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="75%">Average Complexity per LLOC</td>
+                <td width="15%" class="text-right">{{ project.data('phploc').ccnByLloc|number_format(2, '.', '') }}</td>
+                <td width="10%" class="text-right"></td>
+            </tr>
+            <tr>
+                <td>Average Complexity per Class</td>
+                <td class="text-right">{{ project.data('phploc').classCcnAvg|number_format(2, '.', '') }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Minimum Class Complexity</td>
+                <td class="text-right">{{ project.data('phploc').classCcnMin|number_format(2, '.', '') }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Maximum Class Complexity</td>
+                <td class="text-right">{{ project.data('phploc').classCcnMax|number_format(2, '.', '') }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>Average Complexity per Method</td>
+                <td class="text-right">{{ project.data('phploc').methodCcnAvg|number_format(2, '.', '') }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Minimum Method Complexity</td>
+                <td class="text-right">{{ project.data('phploc').methodCcnMin|number_format(2, '.', '') }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Maximum Method Complexity</td>
+                <td class="text-right">{{ project.data('phploc').methodCcnMax|number_format(2, '.', '') }}</td>
+                <td class="text-right"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

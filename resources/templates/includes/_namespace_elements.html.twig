@@ -1,0 +1,18 @@
+{% if namespace|elementsByNamespace|filter(e => (e.elementType == elementType))|filterVisibility|length > 0 %}
+<div class="row">
+    <div class="col">
+        <h3>{{ elementType|pluralize }}</h3>
+
+        <div class="table-responsive">
+            <table class="table">
+                {% for element in namespace|elementsByNamespace|filter(e => (e.elementType == elementType))|filterVisibility|sort((a, b) => a.name <=> b.name) %}
+                    <tr>
+                        <td width="25%"><a href="{{ element|elementFilename }}" title="{{ element.fqsen|trim('\\()') }}">{{ element.name }}</a></td>
+                        <td width="75%">{{ element.docBlock.summary|resolveDocblockLinks }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endif %}

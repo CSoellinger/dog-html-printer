@@ -1,0 +1,105 @@
+<div class="table-responsive">
+    <table class="table table-sm small">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="3" scope="col">Dependencies</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="75%">Global Accesses</td>
+                <td width="15%" class="text-right">{{ project.data('phploc').globalAccesses }}</td>
+                <td width="10%" class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Global Constants</td>
+                <td class="text-right">{{ project.data('phploc').globalConstantAccesses }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').globalAccesses > 0 %}
+                        ({{ (100 - (((project.data('phploc').globalAccesses - project.data('phploc').globalConstantAccesses) / project.data('phploc').globalAccesses) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Global Variables</td>
+                <td class="text-right">{{ project.data('phploc').globalVariableAccesses }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').globalAccesses > 0 %}
+                        ({{ (100 - (((project.data('phploc').globalAccesses - project.data('phploc').globalVariableAccesses) / project.data('phploc').globalAccesses) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Super-Global Variables</td>
+                <td class="text-right">{{ project.data('phploc').superGlobalVariableAccesses }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').globalAccesses > 0 %}
+                        ({{ (100 - (((project.data('phploc').globalAccesses - project.data('phploc').superGlobalVariableAccesses) / project.data('phploc').globalAccesses) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+        {# Attribute Access #}
+            <tr>
+                <td>Attribute Accesses</td>
+                <td class="text-right">{{ project.data('phploc').attributeAccesses }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Non-Static</td>
+                <td class="text-right">{{ project.data('phploc').instanceAttributeAccesses }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').attributeAccesses > 0 %}
+                        ({{ (100 - (((project.data('phploc').attributeAccesses - project.data('phploc').instanceAttributeAccesses) / project.data('phploc').attributeAccesses) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Static</td>
+                <td class="text-right">{{ project.data('phploc').staticAttributeAccesses }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').attributeAccesses > 0 %}
+                        ({{ (100 - (((project.data('phploc').attributeAccesses - project.data('phploc').staticAttributeAccesses) / project.data('phploc').attributeAccesses) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+        {# Method Calls #}
+            <tr>
+                <td>Method Calls</td>
+                <td class="text-right">{{ project.data('phploc').methodCalls }}</td>
+                <td class="text-right"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Non-Static</td>
+                <td class="text-right">{{ project.data('phploc').instanceMethodCalls }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').methodCalls > 0 %}
+                        ({{ (100 - (((project.data('phploc').attributeAccesses - project.data('phploc').instanceMethodCalls) / project.data('phploc').attributeAccesses) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;Static</td>
+                <td class="text-right">{{ project.data('phploc').staticMethodCalls }}</td>
+                <td class="text-right">
+                    {% if project.data('phploc').methodCalls > 0 %}
+                        ({{ (100 - (((project.data('phploc').attributeAccesses - project.data('phploc').staticMethodCalls) / project.data('phploc').attributeAccesses) * 100))|number_format(2, '.', '') }}%)
+                    {% else %}
+                        (0.00%)
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

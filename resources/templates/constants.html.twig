@@ -1,0 +1,33 @@
+{% include "includes/_html-top.html.twig" with { activeFile: _self } %}
+
+<div class="row">
+    <div class="col py-2">
+        <h2>Constants</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th width="25%" scope="col">Name</th>
+                        <th width="10%" scope="col">Type</th>
+                        <th width="15%" scope="col">Value</th>
+                        <th width="50%" scope="col">Description</th>
+                    </tr>
+                </thead>
+                {% for constant in project.constants|filter(constant => constant.isClassConstant() == false)|sort %}
+                <tr>
+                    <td width="25%">{{ constant.name }}</td>
+                    <td width="25%">{{ constant.type }}</td>
+                    <td width="25%">{{ constant.value }}</td>
+                    <td width="50%">{{ constant.docBlock.summary }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% include "includes/_html-bottom.html.twig" with { activeFile: _self } %}

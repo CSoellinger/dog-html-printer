@@ -1,0 +1,21 @@
+<div class="table-responsive">
+    <table class="table table-sm small">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="3" scope="col">Tests</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="75%">Classes</td>
+                <td width="15%" class="text-right">{{ project.data('phploc').testClasses }}</td>
+                <td width="10%" class="text-right"></td>
+            </tr>
+            <tr>
+                <td width="75%">Methods</td>
+                <td width="15%" class="text-right">{{ project.data('phploc').testMethods }}</td>
+                <td width="10%" class="text-right"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

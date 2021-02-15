@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>{{ config.title }}</title>
+
+        {# css files #}
+        {{ assets({files: [
+            '@printerDir/resources/css/bootstrap.css',
+            '@printerDir/resources/css/tree.css',
+            '@printerDir/resources/css/autoComplete.css',
+            '@printerDir/resources/css/highlight.css',
+            '@printerDir/resources/css/style.css',
+            ], name: 'style.css'}) }}
+    </head>
+
+    <body>
+        <div class="container-fluid h-100 mh-100">
+            <div class="row main-row h-100 mh-100">
+                <div class="col-2 d-none d-md-flex flex-column h-100 mh-100">
+                    <div class="row align-items-center top-bar bg-secondary bg-gradient top-bar">
+                        <div class="col">
+                            <div class="position-relative">
+                                <input type="text" class="form-control" placeholder="Search" id="autoCompleteSearch" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row flex-grow-1 overflow-auto bg-light">
+                        <div class="col" id="tree"></div>
+                    </div>
+                </div>
+                <div class="col-10 border-start h-100 mh-100 overflow-auto d-flex flex-column content">
+                    <div class="row">
+                        {% include "includes/_navbar.html.twig" with { activeFile: activeFile } %}
+                    </div>

@@ -1,0 +1,23 @@
+{% include "includes/_html-top.html.twig" with { activeFile: _self } %}
+
+<div class="row">
+    <div class="col py-2">
+        <h2>{{ objects[0].elementType|pluralize }}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="table-responsive">
+            <table class="table">
+                {% for element in objects|filterVisibility|sort((a, b) => a.name <=> b.name) %}
+                    <tr>
+                        <td width="25%"><a href="{{ element|elementFilename }}" title="{{ element.fqsen|trim('\\()') }}">{{ element.name }}</a></td>
+                        <td width="75%">{{ element.docBlock.summary|resolveDocblockLinks }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% include "includes/_html-bottom.html.twig" with { activeFile: _self } %}

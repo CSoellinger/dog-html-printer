@@ -1,0 +1,101 @@
+<nav class="col top-bar navbar navbar-expand-lg navbar-light bg-light small shadow-sm border-bottom">
+    <div class="container-fluid px-0">
+        <a class="navbar-brand" href="index.html">{{ config.title }}</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav">
+                    {% if project.data('phploc') %}
+                    {# Overview #}
+                    <li class="nav-item">
+                        <a class="nav-link{% if activeFile == 'index.html.twig' %} active{% endif %}" href="index.html"
+                            {% if activeFile=='index.html.twig' %} aria-current="page" {% endif %}>
+                            Overview
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {% if readme %}
+                    {# Readme #}
+                    <li class="nav-item">
+                        <a class="nav-link{% if activeFile == 'readme.html.twig' %} active{% endif %}"
+                            href="readme.html" {% if activeFile=='readme.html.twig' %} aria-current="page" {% endif %}>
+                            Readme
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {# Namespaces #}
+                    {% if project.namespaces|length > 0 %}
+                    <li class="nav-item">
+                        <a class="nav-link{% if activeFile == 'namespaces.html.twig' %} active{% endif %}"
+                            href="namespaces.html" {% if activeFile=='namespaces.html.twig' %} aria-current="page" {%
+                            endif %}>
+                            Namespaces
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {# Classes #}
+                    {% if project.classes|filterVisibility|length > 0 %}
+                    <li class="nav-item">
+                        <a class="nav-link{% if activeFile == 'classes.html.twig' %} active{% endif %}"
+                            href="classes.html" {% if activeFile=='classes.html.twig' %} aria-current="page" {% endif
+                            %}>
+                            Classes
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {# Interfaces #}
+                    {% if project.interfaces|filterVisibility|length > 0 %}
+                    <li class="nav-item">
+                        <a class="nav-link{% if activeFile == 'interfaces.html.twig' %} active{% endif %}"
+                            href="interfaces.html" {% if activeFile=='interfaces.html.twig' %} aria-current="page" {%
+                            endif %}>
+                            Interfaces
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {# Traits #}
+                    {% if project.traits|filterVisibility|length > 0 %}
+                    <li class="nav-item">
+                        <a class="nav-link{% if activeFile == 'traits.html.twig' %} active{% endif %}"
+                            href="traits.html" {% if activeFile=='traits.html.twig' %} aria-current="page" {% endif %}>
+                            Traits
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {# Functions #}
+                    {% if project.functions|length > 0 %}
+                    <li class="nav-item">
+                        <a class="nav-link{% if activeFile == 'functions.html.twig' %} active{% endif %}"
+                            href="functions.html" {% if activeFile=='functions.html.twig' %} aria-current="page" {%
+                            endif %}>
+                            Functions
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {# Constants #}
+                    {% if project.constants|filter(constant => constant.isClassConstant() == false)|length > 0 %}
+                    <li class="nav-item">
+                        <a class="nav-link{% if activeFile == 'constants.html.twig' %} active{% endif %}"
+                            href="constants.html" {% if activeFile=='constants.html.twig' %} aria-current="page" {%
+                            endif %}>
+                            Constants
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </ul>
+        </div>
+    </div>
+</nav>

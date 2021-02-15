@@ -1,0 +1,30 @@
+{% include "includes/_html-top.html.twig" with { activeFile: _self } %}
+
+<div class="row">
+    <div class="col py-2">
+        <h2>Namespaces</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="table-responsive">
+            <table class="table">
+                {% for element in project.namespaces|sort %}
+                    <tr>
+                        <td>
+                            <a href="{{ element|elementFilename }}">
+                                {% if not element|trim('\\()') %}
+                                    [ Global Namespace ]
+                                {% else %}
+                                    {{ element|trim('\\()') }}
+                                {% endif %}
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% include "includes/_html-bottom.html.twig" with { activeFile: _self } %}

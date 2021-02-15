@@ -1,0 +1,238 @@
+{% include "includes/_html-top.html.twig" with { activeFile: _self } %}
+
+{% if object.usedInterfaces %}
+    {% set interfaces = object.interfaces|filterVisibility|sort((a, b) => a.name <=> b.name) %}
+{% endif %}
+
+{% if object.usedTraits %}
+    {% set usedTraits = object.usedTraits|map(traitFqsen => traitFqsen|elementByFqsen)|filterVisibility|sort((a, b) => a.name <=> b.name) %}
+{% endif %}
+
+{% if object.properties %}
+    {% set properties = object.properties|filterVisibility|sort((a, b) => a.name <=> b.name) %}
+{% endif %}
+
+{% if object.methods %}
+    {% set methods = object.methods|filterVisibility|sort((a, b) => a.name <=> b.name) %}
+{% endif %}
+
+{% include "includes/_breadcrumbs.html.twig" with {
+    elementType: object.elementType,
+    breadcrumbItems: object.fqsen|trim(rootNamespace() ,'left')|trim('\\()')|split('\\')
+} %}
+
+<a name="{{ object.name }}"></a>
+<div class="row py-3">
+    <div class="col-12 col-md-9 object">
+        <h2>{{ object.name }}</h2>
+        <hr>
+
+        <div class="row signature">
+            {% if object.isFinal or object.isAbstract or (interfaces is defined and interfaces|length > 0) %}
+                <div class="col-12 col-md-6 small">
+                    {% if object.isFinal %}final {{ object.elementType|lower }}{% endif %}
+                    {% if object.isAbstract %}abstract {{ object.elementType|lower }}{% endif %}
+
+                    {% if interfaces is defined and interfaces|length > 0 %}
+                        implements
+
+                        {% for interface in interfaces %}
+                            {{ interface|trim('\\()')|linkFqsen }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endif %}
+            {% if config.printerConfig['includeSource'] is defined and config.printerConfig['includeSource'] == true %}
+                <div class="col-12 col-md-6 small text-end{% if (object.isFinal or object.isAbstract or (interfaces is defined and interfaces|length > 0)) == false %} offset-md-6{% endif %}">
+                    <i><a href="source{{ object.fqsen|replace({'\\': '_'})|lower }}.html">View source</a></i>
+                </div>
+            {% endif %}
+        </div>
+
+        {# Description #}
+        {% if object.docBlock.summary or object.docBlock.description %}
+            <a name="description"></a>
+            <div class="description mt-2 p-3">
+                {{ object.docBlock.summary|markdown_to_html|transformPrismHtml|resolveDocblockLinks }}
+
+                {% if object.docBlock.description|trim %}
+                    <small>
+                        {{ object.docBlock.description|markdown_to_html|transformPrismHtml|resolveDocblockLinks }}
+                    </small>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {# Traits #}
+        {% if usedTraits is defined and usedTraits|length > 0 %}
+            <div class="mt-2">&nbsp;</div>
+
+            <a name="traits"></a>
+            <div class="card traits">
+                <div class="card-header pl-2">
+                    <h3 class="mb-0 h6">Traits</h3>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th width="25%">Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for trait in usedTraits %}
+                                    <tr>
+                                        <td><a href="{{ trait|elementFilename }}" title="{{ trait.fqsen|trim('\\()') }}">{{ trait.name }}</a></td>
+                                        <td>{{ trait.docBlock.summary|resolveDocblockLinks }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {# Properties summary #}
+        {% if properties is defined and properties|length > 0 %}
+            <div class="mt-2">&nbsp;</div>
+
+            <a name="properties"></a>
+            <div class="card properties">
+                <div class="card-header pl-2">
+                    <h3 class="mb-0 h6">Properties summary</h3>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th width="20%">Property</th>
+                                    <th width="15%">Type</th>
+                                    <th width="10%">Default</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for property in properties %}
+                                    <tr>
+                                        <td class="font-weight-bold">${{ property.name }}</td>
+                                        <td>{{ property.type|linkFqsen }}</td>
+                                        <td><i>{{ property.default }}</i></td>
+                                        <td>{{ property.description|resolveDocblockLinks }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {# Methods summary #}
+        {% if methods is defined and methods|length > 0 %}
+            <div class="mt-2">&nbsp;</div>
+
+            <a name="methods"></a>
+            <div class="card methods">
+                <div class="card-header pl-2">
+                    <h3 class="mb-0 h6">Methods summary</h3>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th width="20%">Method Name</th>
+                                    <th width="25%">Return Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for method in methods %}
+                                    <tr>
+                                        <td><a href="#method-{{ method.name }}">{{ method.name }}</a></td>
+                                        <td>{{ method.returnType|linkFqsen }}</td>
+                                        <td>{{ method.docBlock.summary|resolveDocblockLinks }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {# Details #}
+        {% if methods is defined and methods|length > 0 %}
+            <a name="details"></a>
+            <h3 class="mt-5">Details</h3>
+            <hr>
+
+            {% for method in methods %}
+                {% embed "includes/_object_detail_item.html.twig" with {'name': 'method', 'method': method} %}
+                    {%- block map -%}
+                        {% if method.isAbstract %}abstract {% endif %}{% if method.isFinal %}final {% endif %}{{ method.visibility }}{% if method.isStatic %} static{% endif %} function {{ method.name }}
+                        {%- apply spaceless -%}
+                        (
+                            {%- for argument in method.arguments -%}
+                                {{ argument.type|shortenFqsen }} {% if argument.isVariadic %}...{% endif %}{% if argument.byReference %}&amp;{% endif %}${{ argument.name }}{% if argument.default %}={{ argument.default }}{% endif %}{% if not loop.last %}, {% endif %}
+                            {%- endfor -%}
+                        ): {{ method.returnType|shortenFqsen }}
+                        {%- endapply -%}
+                    {%- endblock -%}
+
+                    {% block source %}
+                        {% if config.printerConfig['includeSource'] is defined and config.printerConfig['includeSource'] == true %}
+                            <div class="flex-shrink-1 extra-small font-style-italic text-end">
+                                at&nbsp;line <a href="source{{ object.fqsen|replace({'\\': '_'})|lower }}.html#line{{ method.location.lineNumber+1 }}">{{ method.location.lineNumber+1 }}</a>
+                            </div>
+                        {% endif %}
+                    {% endblock %}
+                {% endembed %}
+            {% endfor %}
+        {% endif %}
+    </div>
+    {% embed "includes/_toc_sidebar.html.twig" %}
+        {% block index %}
+            <ul class="list-unstyled mb-0 small">
+                <li>
+                    <a href="#{{ object.name }}" class="text-reset">{{ object.name }}</a>
+
+                    <ul>
+                        {% if object.docBlock.summary or object.docBlock.description %}
+                            <li>
+                                <a href="#description" class="text-reset">Description</a>
+                            </li>
+                        {% endif %}
+                        {% if usedTraits is defined and usedTraits|length > 0 %}
+                            <li><a href="#traits" class="text-reset">Traits</a></li>
+                        {% endif %}
+                        {% if properties is defined and properties|length > 0 %}
+                            <li><a href="#properties" class="text-reset">Properties summary</a></li>
+                        {% endif %}
+                        {% if methods is defined and methods|length > 0 %}
+                            <li><a href="#methods" class="text-reset">Methods summary</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+
+                {% if methods is defined and methods|length > 0 %}
+                    <li>
+                        <a href="#details" class="text-reset">Details</a>
+
+                        <ul>
+                            {% for method in methods %}
+                                <li><a href="#method-{{ method.name }}" class="text-reset">{{ method.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endif %}
+            </ul>
+        {% endblock %}
+    {% endembed %}
+</div>
+
+{% include "includes/_html-bottom.html.twig" with { activeFile: _self } %}

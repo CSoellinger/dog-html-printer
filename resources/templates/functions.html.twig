@@ -1,0 +1,99 @@
+{% include "includes/_html-top.html.twig" with { activeFile: _self } %}
+
+{% set functions = project.functions|filterVisibility|sort %}
+
+<div class="row py-3">
+    <div class="col-12 col-md-9">
+        <h2>Functions</h2>
+        <hr>
+
+        <div class="row">
+            <div class="col">
+                <a name="summary"></a>
+                <div class="card functions">
+                    <div class="card-header pl-2">
+                        <h3 class="mb-0 h6">Summary</h3>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-sm table-striped mb-0">
+                                <thead>
+                                    <tr>
+                                        <th width="20%">Function Name</th>
+                                        <th width="25%">Return Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for function in functions %}
+                                        <tr>
+                                            <td>
+                                                <a href="#function-{{ function.name }}">
+                                                    {{ function.name }}
+                                                </a>
+                                            </td>
+                                            <td>{{ function.returnType|linkFqsen }}</td>
+                                            <td>{{ function.docBlock.summary|resolveDocblockLinks }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <a name="details"></a>
+                <h3 class="mt-5">Details</h3>
+                <hr>
+
+                {% for function in functions %}
+                    {% embed "includes/_object_detail_item.html.twig" with {'name': 'function', 'method': function} %}
+                        {%- block map -%}
+                            function {{ function.name }}
+                            {%- apply spaceless -%}
+                                (
+                                    {%- for argument in function.arguments -%}
+                                        {{ argument.type|shortenFqsen }} {% if argument.isVariadic %}...{% endif %}{% if argument.byReference %}&amp;{% endif %}${{ argument.name }}{% if argument.default %}={{ argument.default }}{% endif %}{% if not loop.last %}, {% endif %}
+                                    {%- endfor -%}
+                                ): {{ function.returnType|shortenFqsen }}
+                            {%- endapply -%}
+                        {%- endblock -%}
+
+                        {% block source %}
+                            {% if config.printerConfig['includeSource'] is defined and config.printerConfig['includeSource'] == true %}
+                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
+                                    at&nbsp;line <a href="#">{{ function.location.lineNumber }}</a>
+                                </div>
+                            {% endif %}
+                        {% endblock %}
+                    {% endembed %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% embed "includes/_toc_sidebar.html.twig" %}
+        {% block index %}
+            <ul class="list-unstyled mb-0 small">
+                <li>
+                    <a href="#summary" class="text-reset">Summary</a>
+                </li>
+                <li>
+                    <a href="#details" class="text-reset">Details</a>
+
+                    <ul>
+                        {% for function in project.functions|filterVisibility|sort %}
+                            <li>
+                                <a href="#function-{{ function.name }}" class="text-reset">{{ function.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        {% endblock %}
+    {% endembed %}
+</div>
+
+{% include "includes/_html-bottom.html.twig" with { activeFile: _self } %}

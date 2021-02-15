@@ -1,0 +1,40 @@
+{% include "includes/_html-top.html.twig" with { activeFile: _self } %}
+
+{% include "includes/_breadcrumbs.html.twig" with {
+    elementType: 'namespace',
+    breadcrumbItems: namespace|trim(rootNamespace() ,'left')|trim('\\()')|split('\\')|filter(val => val != '')
+} %}
+
+<div class="row py-2">
+    <div class="col">
+        <h2>
+            {{ namespace|trim('\\()') }}
+        </h2>
+    </div>
+</div>
+
+{% set subNamespaces = namespace|subNamespaces %}
+{% if subNamespaces|length > 0 %}
+    <div class="row">
+        <div class="col">
+            <h3>Namespaces</h3>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col">
+            {% for subNamespace in subNamespaces %}
+                <div class="badge border p-2">
+                    <a href="{{subNamespace|elementFilename}}">{{ subNamespace|trim('\\()') }}</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+
+
+{% include "includes/_namespace_elements.html.twig" with { elementType: 'Class' } %}
+{% include "includes/_namespace_elements.html.twig" with { elementType: 'Interface' } %}
+{% include "includes/_namespace_elements.html.twig" with { elementType: 'Trait' } %}
+{% include "includes/_namespace_elements.html.twig" with { elementType: 'Function' } %}
+
+{% include "includes/_html-bottom.html.twig" with { activeFile: _self } %}
