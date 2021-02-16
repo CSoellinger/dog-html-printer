@@ -16,7 +16,7 @@
 - [About](#about)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Documentation](#documentation)
+- [Documentation / Demo](#documentation--demo)
 - [Contributing](#contributing)
   - [Known Issues](#known-issues)
   - [ToDo](#todo)
@@ -28,7 +28,20 @@ A HTML printer for [Dog PHP Documentation Generator](https://github.com/klitsche
 
 ## Installation
 
-First you need to install [Dog PHP Documentation Generator](https://github.com/klitsche/dog). After it install this package as a dependency using [Composer](https://getcomposer.org).
+First: You need to install [Dog PHP Documentation Generator](https://github.com/klitsche/dog).
+
+Second: For now you have to allow minimum stability *dev* inside composer file cause the latest version of [highlight.php](https://github.com/scrivo/highlight.php) works like a charm but isn't released yet, so we use the dev-master branch.
+
+Add this to your composer.json file:
+
+```json
+{
+    "minimum-stability": "dev",
+    "prefer-stable" : true,
+}
+```
+
+At least install the html printer:
 
 ```bash
 composer require --dev csoellinger/dog-html-printer
@@ -99,7 +112,7 @@ Right after customizing the configuration you can start building your documentat
 vendor/bin/dog
 ```
 
-## Documentation
+## Documentation / Demo
 
 [https://csoellinger.github.io/dog-html-printer](https://csoellinger.github.io/dog-html-printer)
 
