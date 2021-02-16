@@ -119,7 +119,7 @@
                                 {% for property in properties %}
                                     <tr>
                                         <td class="font-weight-bold">${{ property.name }}</td>
-                                        <td>{{ property.type|linkFqsen }}</td>
+                                        <td>{{ property.type|escape|linkFqsen }}</td>
                                         <td><i>{{ property.default }}</i></td>
                                         <td>{{ property.description|resolveDocblockLinks }}</td>
                                     </tr>
@@ -154,7 +154,7 @@
                                 {% for method in methods %}
                                     <tr>
                                         <td><a href="#method-{{ method.name }}">{{ method.name }}</a></td>
-                                        <td>{{ method.returnType|linkFqsen }}</td>
+                                        <td>{{ method.returnType|escape|linkFqsen|replace({'|': '|<wbr>'}) }}</td>
                                         <td>{{ method.docBlock.summary|resolveDocblockLinks }}</td>
                                     </tr>
                                 {% endfor %}
@@ -178,9 +178,9 @@
                         {%- apply spaceless -%}
                         (
                             {%- for argument in method.arguments -%}
-                                {{ argument.type|shortenFqsen }} {% if argument.isVariadic %}...{% endif %}{% if argument.byReference %}&amp;{% endif %}${{ argument.name }}{% if argument.default %}={{ argument.default }}{% endif %}{% if not loop.last %}, {% endif %}
+                                {{ argument.type|escape|shortenFqsen }} {% if argument.isVariadic %}...{% endif %}{% if argument.byReference %}&amp;{% endif %}${{ argument.name }}{% if argument.default %}={{ argument.default }}{% endif %}{% if not loop.last %}, {% endif %}
                             {%- endfor -%}
-                        ): {{ method.returnType|shortenFqsen }}
+                        ): {{ method.returnType|escape|shortenFqsen }}
                         {%- endapply -%}
                     {%- endblock -%}
 

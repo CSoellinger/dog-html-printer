@@ -38,7 +38,7 @@
                             {% for argument in method.arguments %}
                                 <tr>
                                     <td>{% if argument.isVariadic %}...{% endif %}{% if argument.byReference %}&amp;{% endif %}${{ argument.name }}</td>
-                                    <td>{{ argument.type|linkFqsen }}</td>
+                                    <td>{{ argument.type|escape|linkFqsen|replace({'|': '|<wbr>'}) }}</td>
                                     <td><i>{{ argument.default }}</i></td>
                                     <td>{{ argument.description|resolveDocblockLinks }}</td>
                                 </tr>
@@ -57,8 +57,12 @@
                     <table class="table table-sm">
                         <tbody>
                             <tr>
-                                <td width="40%">{{ method.returnType|linkFqsen }}</td>
-                                <td>{{ method.returnDescription|resolveDocblockLinks }}</td>
+                                {% if method.returnDescription %}
+                                    <td width="40%">{{ method.returnType|escape|linkFqsen|replace({'|': '|<wbr>'}) }}</td>
+                                    <td>{{ method.returnDescription|resolveDocblockLinks }}</td>
+                                {% else %}
+                                    <td width="100%">{{ method.returnType|escape|linkFqsen|replace({'|': '|<wbr>'}) }}</td>
+                                {% endif %}
                             </tr>
                         </tbody>
                     </table>
