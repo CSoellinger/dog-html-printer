@@ -97,7 +97,7 @@
 <a href="#usage">Usage</a>
 </li>
 <li>
-<a href="#documentation">Documentation</a>
+<a href="#documentation--demo">Documentation / Demo</a>
 </li>
 <li>
 <a href="#contributing">Contributing</a>
@@ -117,7 +117,14 @@
 <h2>About<a id="user-content-about" href="#about" name="about" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
 <p>A HTML printer for <a href="https://github.com/klitsche/dog">Dog PHP Documentation Generator</a>. It is heavily inspired by Doctum, phpDox and other good projects. The printer is Work-In-Progress at the moment but it is already very configurable and has a nice look with many features like: Tree Navigation, Source Code implementation, PhpLoc overview, readme renderer and some more are planned. Take a look at the todo section.</p>
 <h2>Installation<a id="user-content-installation" href="#installation" name="installation" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
-<p>First you need to install <a href="https://github.com/klitsche/dog">Dog PHP Documentation Generator</a>. After it install this package as a dependency using <a href="https://getcomposer.org">Composer</a>.</p>
+<p>First: You need to install <a href="https://github.com/klitsche/dog">Dog PHP Documentation Generator</a>.</p>
+<p>Second: For now you have to allow minimum stability <em>dev</em> inside composer file cause the latest version of <a href="https://github.com/scrivo/highlight.php">highlight.php</a> works like a charm but isn't released yet, so we use the dev-master branch.</p>
+<p>Add this to your composer.json file:</p>
+<pre><code class="hljs json">{
+    <span class="hljs-attr">"minimum-stability"</span>: <span class="hljs-string">"dev"</span>,
+    <span class="hljs-attr">"prefer-stable"</span> : <span class="hljs-literal">true</span>,
+}</code></pre>
+<p>At least install the html printer:</p>
 <pre><code class="hljs bash">composer require --dev csoellinger/dog-html-printer</code></pre>
 <h2>Usage<a id="user-content-usage" href="#usage" name="usage" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
 <p>After you have installed <a href="https://github.com/klitsche/dog">Dog</a> and <a href="https://github.com/csoellinger/dog-html-printer">Dog HTML printer</a> you can customize your <em>.dog.yml</em> to use the new printer class.</p>
@@ -175,7 +182,7 @@
 <span class="hljs-attr">debug:</span> <span class="hljs-literal">false</span></code></pre>
 <p>Right after customizing the configuration you can start building your documentation.</p>
 <pre><code class="hljs bash">vendor/bin/dog</code></pre>
-<h2>Documentation<a id="user-content-documentation" href="#documentation" name="documentation" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
+<h2>Documentation / Demo<a id="user-content-documentation--demo" href="#documentation--demo" name="documentation--demo" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
 <p><a href="https://csoellinger.github.io/dog-html-printer">https://csoellinger.github.io/dog-html-printer</a></p>
 <h2>Contributing<a id="user-content-contributing" href="#contributing" name="contributing" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
 <p>Contributions are welcome! To contribute, please familiarize yourself with
@@ -233,7 +240,7 @@ MIT License (MIT). Please see <a href="LICENSE">LICENSE</a> for more information
 
                                                     </li>
                                             <li>
-                            <a href="#documentation">Documentation</a>
+                            <a href="#documentation-demo">Documentation / Demo</a>
 
                                                     </li>
                                             <li>
