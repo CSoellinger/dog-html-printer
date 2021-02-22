@@ -21,7 +21,7 @@
                 </ul>
             {% endmacro %}
 
-            {{ _self.toc(markdownHeadingsList(readme, 2)|arrayListToTree, 'list-unstyled mb-0 small') }}
+            {{ _self.toc(markdownToc(readme, 2)|arrayListToTree, 'list-unstyled mb-0 small') }}
         {% endblock %}
     {% endembed %}
 </div>
