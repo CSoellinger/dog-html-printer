@@ -14,8 +14,10 @@
  * implied. See the License for the specific language governing
  * permissions and limitations under the License.
  *
+ * @see       https://github.com/CSoellinger/dog-html-printer
+ *
  * @copyright Copyright (c) Christopher Söllinger <christopher.soellinger@gmail.com>
- * @license https://opensource.org/licenses/MIT MIT License
+ * @license   https://opensource.org/licenses/MIT MIT License
  */
 
 declare(strict_types=1);
@@ -213,7 +215,7 @@ class HtmlPrinter implements PrinterInterface
         // Custom functions
         $this->twig->addFunction(new TwigFunction('elementsList', [TwigUtil::class, 'getElementsList']));
         $this->twig->addFunction(new TwigFunction('rootNamespace', [TwigUtil::class, 'getRootNamespace']));
-        $this->twig->addFunction(new TwigFunction('markdownHeadingsList', [TwigUtil::class, 'getMarkdownHeadingsList']));
+        $this->twig->addFunction(new TwigFunction('markdownToc', [TwigUtil::class, 'getMarkdownToc']));
     }
 
     /**
