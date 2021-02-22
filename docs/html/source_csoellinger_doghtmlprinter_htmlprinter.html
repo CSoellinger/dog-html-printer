@@ -320,7 +320,7 @@
         <span class="hljs-comment">// Custom functions</span>
         <span class="hljs-keyword">$this</span>-&gt;twig-&gt;addFunction(<span class="hljs-keyword">new</span> TwigFunction(<span class="hljs-string">'elementsList'</span>, [TwigUtil::class, <span class="hljs-string">'getElementsList'</span>]));
         <span class="hljs-keyword">$this</span>-&gt;twig-&gt;addFunction(<span class="hljs-keyword">new</span> TwigFunction(<span class="hljs-string">'rootNamespace'</span>, [TwigUtil::class, <span class="hljs-string">'getRootNamespace'</span>]));
-        <span class="hljs-keyword">$this</span>-&gt;twig-&gt;addFunction(<span class="hljs-keyword">new</span> TwigFunction(<span class="hljs-string">'markdownHeadingsList'</span>, [TwigUtil::class, <span class="hljs-string">'getMarkdownHeadingsList'</span>]));
+        <span class="hljs-keyword">$this</span>-&gt;twig-&gt;addFunction(<span class="hljs-keyword">new</span> TwigFunction(<span class="hljs-string">'markdownToc'</span>, [TwigUtil::class, <span class="hljs-string">'getMarkdownToc'</span>]));
     }
 
     <span class="hljs-comment">/**
