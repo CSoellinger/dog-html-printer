@@ -14,6 +14,8 @@
  * implied. See the License for the specific language governing
  * permissions and limitations under the License.
  *
+ * @see       https://github.com/CSoellinger/dog-html-printer
+ *
  * @copyright Copyright (c) Christopher Söllinger <christopher.soellinger@gmail.com>
  * @license https://opensource.org/licenses/MIT MIT License
  */
