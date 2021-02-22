@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of csoellinger/dog-html-printer
+ * This file is part of csoellinger/dog-html-printer.
  *
  * csoellinger/dog-html-printer is open source software: you can distribute
  * it and/or modify it under the terms of the MIT License
@@ -14,8 +14,10 @@
  * implied. See the License for the specific language governing
  * permissions and limitations under the License.
  *
+ * @see       https://github.com/CSoellinger/dog-html-printer
+ *
  * @copyright Copyright (c) Christopher Söllinger <christopher.soellinger@gmail.com>
- * @license https://opensource.org/licenses/MIT MIT License
+ * @license   https://opensource.org/licenses/MIT MIT License
  */
 
 declare(strict_types=1);
@@ -40,6 +42,7 @@ use function array_filter;
 use function array_flip;
 use function array_keys;
 use function array_merge;
+use function array_reverse;
 use function array_search;
 use function array_slice;
 use function asort;
@@ -50,6 +53,7 @@ use function html_entity_decode;
 use function implode;
 use function in_array;
 use function method_exists;
+use function preg_grep;
 use function preg_match;
 use function preg_match_all;
 use function preg_quote;
@@ -90,49 +94,64 @@ class TwigUtil
     private static array $fqsenIndex = [];
 
     /**
-     * Undocumented.
+     * Get a Table-Of-Content(toc) array from markdown.
      *
-     * @return array<int|string,array<string,bool|int|string|null>>
+     * @param string|null $markdown Text
+     * @param int         $minLevel Min heading level
+     * @param int         $maxLevel Max heading level
+     *
+     * @return list<array<string,?string>>
+     *
+     * @psalm-return list<array{id:?string,lvl:int,name:string,parent_id:?string}>
      */
-    public static function getMarkdownHeadingsList(string $markdown = null, int $minLevel = 1, int $maxLevel = 6)
+    public static function getMarkdownToc(?string $markdown = null, int $minLevel = 1, int $maxLevel = 6)
     {
         if (!$markdown) {
-            return $markdown;
+            return [];
         }
 
         // Remove code blocks cause they can have heading symbols (#)
-        $markdown = preg_replace('/(```[a-z]*\n[\s\S]*?\n```)/', '', $markdown);
+        $markdown = (string) preg_replace('/(```[a-z]*\n[\s\S]*?\n```)/', '', $markdown);
 
         // Fetch all lines with headings
-        $headings = preg_grep('/^\s*\#{' . $minLevel . ',' . $maxLevel . '}\ /', explode("\n", $markdown));
-
+        $headings = array_filter(
+            (array) preg_grep('/^\s*\#{' . $minLevel . ',' . $maxLevel . '}\ /', explode("\n", $markdown)),
+        );
         $data = [];
 
-        foreach($headings as $heading) {
-            $lvl = (strlen(explode(' ', $heading)[0]) - $minLevel) + 1;
-            $parentId = $lvl === 1 ? 0 : '';
+        foreach ($headings as $heading) {
+            $lvl = strlen(explode(' ', $heading)[0]) - $minLevel + 1;
+            $parentId = '';
 
-            if ($parentId === '') {
-                foreach(array_reverse($data) as $item) {
+            if ($lvl > 1) {
+                foreach (array_reverse($data) as $item) {
                     if ($item['lvl'] < $lvl) {
-                        $parentId = $item['id'];
+                        $parentId = (string) $item['id'];
+
                         break;
                     }
                 }
             }
 
             $data[] = [
-                'id' => preg_replace('/\s/', '', trim($heading, "#")),
-                'parent_id' => $parentId,
-                'name' => trim($heading, "# \t\n\r\0\x0B"),
-                'lvl' => $lvl,
+                'id' => preg_replace('/\s/', '', trim($heading, '#')),
+                'parent_id' => $parentId ?: null,
+                'name' => (string) trim($heading, "# \t\n\r\0\x0B"),
+                'lvl' => (int) $lvl,
             ];
         }
 
         return $data;
     }
 
-    public static function highlightSource(string $source, string $lang = 'auto'): string
+    /**
+     * Highlight source code, powered by highlight.php.
+     *
+     * @param string|null $source Source code
+     * @param string      $lang   Source language. Value "auto" selects the language for you, but takes a lot of
+     *                            performance
+     */
+    public static function highlightSource(?string $source, string $lang = 'auto'): ?string
     {
         if (!$source) {
             return $source;
@@ -152,11 +171,11 @@ class TwigUtil
     }
 
     /**
-     * Filter elements which are private or marked as (@)internal
+     * Filter elements which are private or marked as (@)internal.
      *
-     * @param Class_[]|Interface_[]|Trait_[]|ElementInterface[]|null $value
+     * @param Class_[]|ElementInterface[]|Interface_[]|Trait_[]|null $value
      *
-     * @return Class_[]|Interface_[]|Trait_[]|ElementInterface[]|null
+     * @return Class_[]|ElementInterface[]|Interface_[]|Trait_[]|null
      */
     public static function filterVisibility(?array $value = null)
     {
@@ -178,15 +197,18 @@ class TwigUtil
             // Filter elements which have an @internal doc block
             $value = array_filter(
                 $value,
-                fn ($el) => (
-                        method_exists($el, 'getDocBlock') === true && (
-                            !$el->getDocBlock() || (
-                                $el->getDocBlock() &&
+                /**
+                 * @psalm-suppress MixedMethodCall
+                 */
+                fn (?object $el) => (
+                    $el && method_exists($el, 'getDocBlock') === true && (
+                        !$el->getDocBlock() || (
+                            $el->getDocBlock() &&
                                 $el->getDocBlock()->hasTag('internal') === false
-                            )
                         )
-                    ) ||
-                    method_exists($el, 'getDocBlock') === false,
+                    )
+                ) ||
+                $el && method_exists($el, 'getDocBlock') === false,
             );
         }
 
@@ -194,8 +216,13 @@ class TwigUtil
             // Filter elements which are declared with private visibility
             $value = array_filter(
                 $value,
-                fn ($el) => (method_exists($el, 'getVisibility') && $el->getVisibility()->__toString() !== 'private') ||
-                    method_exists($el, 'getVisibility') === false,
+                /**
+                 * @psalm-suppress MixedMethodCall
+                 */
+                fn (?object $el) => (
+                    $el && method_exists($el, 'getVisibility') && $el->getVisibility()->__toString() !== 'private'
+                ) ||
+                $el && method_exists($el, 'getVisibility') === false,
             );
         }
 
@@ -208,13 +235,17 @@ class TwigUtil
      *
      * @param array<string> $unsetFields
      *
-     * @return array<int|string,array<string,bool|int|string|null>>
+     * @return array<int, array<string, (bool|int|string|null)>>
      */
     public static function getElementsList(array $unsetFields = []): array
     {
         $data = [];
         $namespaces = self::$project->getNamespaces();
         $globalNamespace = null;
+
+        if (count($namespaces) <= 0) {
+            return $data;
+        }
 
         asort($namespaces);
 
@@ -233,8 +264,7 @@ class TwigUtil
                 'type' => 'folder',
                 'open' => (self::$currentFileName === $link),
                 'selected' => (self::$currentFileName === $link),
-                'parent_id' =>
-                    reset($namespaces) === $namespace ?
+                'parent_id' => reset($namespaces) === $namespace ?
                     0 :
                     implode('\\', array_slice(explode('\\', $namespace->__toString()), 0, -1)),
                 'link' => $link,
@@ -282,7 +312,7 @@ class TwigUtil
                     continue;
                 }
 
-                $data[$key]['open'] = true;
+                $data[(int) $key]['open'] = true;
 
                 /**
                  * @var array $selected
@@ -295,55 +325,6 @@ class TwigUtil
          * @psalm-suppress MixedArgumentTypeCoercion
          */
         usort($data, fn (array $a, array $b) => $a['id'] <=> $b['id']);
-
-        return $data;
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param string[] $unsetFields
-     *
-     * @return list<array<string, (bool|string|null)>>
-     */
-    private static function getElementsListByNamespace(Fqsen $ns, array $unsetFields = []): array
-    {
-        $data = [];
-        $elements = self::filterVisibility(self::$project->getIndex()->getElementsByNamespace($ns));
-
-        if (!$elements) {
-            return $data;
-        }
-
-        foreach ($elements as $element) {
-            if (in_array($element->getElementType(), [Class_::TYPE, Interface_::TYPE, Trait_::TYPE]) === false) {
-                continue;
-            }
-
-            /**
-             * @var string $id
-             * @psalm-suppress UndefinedInterfaceMethod
-             * @psalm-suppress MixedMethodCall
-             * @psalm-suppress PossiblyUndefinedMethod
-             * @phpstan-ignore-next-line
-             * */
-            $id = $element->getFqsen()->__toString();
-
-            $link = self::getElementFilename($element);
-            $record = [
-                'id' => $id,
-                'name' => $element->getName(),
-                'elementType' => strtolower($element->getElementType()),
-                'type' => 'file',
-                'open' => (self::$currentFileName === $link),
-                'selected' => (self::$currentFileName === $link),
-                'parent_id' => $ns->__toString() === '\\' ? 'Global' : $ns->__toString(),
-                'link' => $link,
-            ];
-            $record = array_diff_key($record, array_flip($unsetFields));
-
-            $data[] = $record;
-        }
 
         return $data;
     }
@@ -382,7 +363,7 @@ class TwigUtil
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
      * @return Fqsen[]
      */
@@ -394,6 +375,11 @@ class TwigUtil
 
         $subNamespaces = [];
         $namespaces = self::$project->getNamespaces();
+
+        if (count($namespaces) <= 0) {
+            return $subNamespaces;
+        }
+
         asort($namespaces);
 
         if (reset($namespaces)->__toString() === '\\') {
@@ -428,25 +414,37 @@ class TwigUtil
         foreach ($matches as $match) {
             $source = trim(html_entity_decode($match[3]));
             $highlightedSource = self::highlightSource($source, $match[2]);
-            $value = str_replace(trim($match[0]), $highlightedSource, $value);
+            $value = str_replace(trim($match[0]), (string) $highlightedSource, $value);
         }
 
         return $value;
     }
 
+    /**
+     * Get the first defined namespace as root namespace. Global namespace will be removed before.
+     */
     public static function getRootNamespace(): ?Fqsen
     {
         $namespaces = self::$project->getNamespaces();
-        asort($namespaces);
 
-        if (reset($namespaces)->__toString() === '\\') {
-            $namespaces = array_slice($namespaces, 1);
-        }
-
+        // If there is only global stuff defined we will return null
         if (count($namespaces) <= 0) {
             return null;
         }
 
+        asort($namespaces);
+
+        // Remove global workspace if there is one
+        if (reset($namespaces)->__toString() === '\\') {
+            $namespaces = array_slice($namespaces, 1);
+        }
+
+        // If there is only global stuff defined we will return null
+        if (count($namespaces) <= 0) {
+            return null;
+        }
+
+        // Otherwise we return the first namespace element as root namespace
         return reset($namespaces);
     }
 
@@ -466,6 +464,7 @@ class TwigUtil
             $fqsen = str_replace(['[', ']'], '', $fqsen);
 
             if (in_array($fqsen, $fqsenKeys) === true) {
+                /** @var ElementInterface|Fqsen|null $element */
                 $element = self::getFqsenIndex()[$fqsen];
 
                 if ($element === null) {
@@ -476,6 +475,7 @@ class TwigUtil
 
                 switch (true) {
                     case $element instanceof Function_:
+                        /** @var Function_ $element */
                         $link = sprintf(
                             '<a href="%s">%s</a>',
                             'functions.html#' . (string) $element->getName(),
@@ -486,6 +486,7 @@ class TwigUtil
                     case $element instanceof Constant:
                         $fileName = 'constants.html#' . (string) $element->getName();
 
+                        /** @var Constant $element */
                         if ($element->isClassConstant()) {
                             $fileName = self::getElementFilename($element->getOwner()) .
                                 '#constant-' . (string) $element->getName();
@@ -503,6 +504,7 @@ class TwigUtil
                     case $element instanceof Class_:
                     case $element instanceof Interface_:
                     case $element instanceof Trait_:
+                        /** @var Class_|Interface_|Trait_ $element */
                         $link = sprintf(
                             '<a href="%s" title="%s">%s</a>',
                             self::getElementFilename($element),
@@ -512,11 +514,11 @@ class TwigUtil
 
                         break;
                     case $element instanceof Fqsen:
-                        $namespaceName = trim((string) $element->__toString(), '\\()') ?: 'global';
+                        /** @var Fqsen $element */
                         $link = sprintf(
                             '<a href="%s">%s</a>',
                             self::getElementFilename($element),
-                            $namespaceName,
+                            trim((string) $element->__toString(), '\\()') ?: 'global',
                         );
 
                         break;
@@ -556,7 +558,7 @@ class TwigUtil
     }
 
     /**
-     * Turn an flat array with parents to a tree like array with childrens.
+     * Turn an flat array with parents to a tree like array with childs.
      *
      * @param array<mixed> $flatList
      *
@@ -571,9 +573,10 @@ class TwigUtil
         /** @var array<string,array> $grouped */
         $grouped = [];
 
-        /** @var array<string,string|int|array> $node */
+        /** @var array<string,array> $node */
         foreach ($flatList as $node) {
-            $grouped[$node[$parentKey]][] = $node;
+            $key = $node[$parentKey] ?: 0;
+            $grouped[$key][] = $node;
         }
 
         /** @var callable $fnBuilder */
@@ -597,7 +600,7 @@ class TwigUtil
     }
 
     /**
-     * Try to resolve {@link} from docblocks. For the moment only extern urls
+     * Try to resolve {@link} from doc blocks. For the moment only extern urls
      * are working.
      */
     public static function resolveDocblockLinks(?string $value = null): ?string
@@ -647,30 +650,17 @@ class TwigUtil
             case $element instanceof Class_:
             case $element instanceof Interface_:
             case $element instanceof Trait_:
+                /** @var Class_|Interface_|Trait_ $element */
                 $filename = strtolower(
                     $element->getElementType() . '_' .
                     str_replace('\\', '_', trim((string) $element->getFqsen(), '\\()')),
                 );
 
                 break;
-
-            // case $element instanceof Method:
-            //     $owner = $this->fileName($element->getOwner());
-
-            //     return $owner . '#' . strtolower($element->getFqsen()->getName());
-
-            //     break;
             case $element instanceof Function_:
                 $filename = 'functions.html#function-' . (string) $element->getName();
 
                 break;
-
-            // case $element instanceof Constant:
-            //     $fqsen = trim((string) $element->getFqsen(), '\\()');
-
-            //     return 'constants.md#' . strtolower(str_replace('\\', '_', $fqsen));
-
-            //     break;
             case $element instanceof Fqsen:
                 $namespaceName = trim((string) $element->__toString(), '\\()') ?: 'global';
                 $filename = 'namespace_' .
@@ -684,6 +674,50 @@ class TwigUtil
         }
 
         return $filename . '.' . $extension;
+    }
+
+    /**
+     * Undocumented function.
+     *
+     * @param string[] $unsetFields
+     *
+     * @return list<array<string, (bool|string|null)>>
+     */
+    private static function getElementsListByNamespace(Fqsen $ns, array $unsetFields = []): array
+    {
+        $data = [];
+        $elements = self::filterVisibility(self::$project->getIndex()->getElementsByNamespace($ns));
+
+        if (!$elements) {
+            return $data;
+        }
+
+        foreach ($elements as $element) {
+            if (in_array($element->getElementType(), [Class_::TYPE, Interface_::TYPE, Trait_::TYPE]) === false) {
+                continue;
+            }
+
+            /** @var Class_|Interface_|Trait_ $element */
+            $fqsen = $element->getFqsen();
+            $id = $fqsen->__toString();
+
+            $link = self::getElementFilename($element);
+            $record = [
+                'id' => $id,
+                'name' => $element->getName(),
+                'elementType' => strtolower($element->getElementType()),
+                'type' => 'file',
+                'open' => (self::$currentFileName === $link),
+                'selected' => (self::$currentFileName === $link),
+                'parent_id' => $ns->__toString() === '\\' ? 'Global' : $ns->__toString(),
+                'link' => $link,
+            ];
+            $record = array_diff_key($record, array_flip($unsetFields));
+
+            $data[] = $record;
+        }
+
+        return $data;
     }
 
     /**
