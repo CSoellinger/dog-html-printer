@@ -27,21 +27,21 @@ jobs:
       - name: "Check coding standards"
         run: "composer dev:lint"
 
-  # static-analysis:
-  #   name: "Static Analysis"
-  #   runs-on: "ubuntu-latest"
-  #   steps:
-  #     - uses: "actions/checkout@v2"
-  #     - uses: "shivammathur/setup-php@v2"
-  #       with:
-  #         php-version: "7.4"
-  #         coverage: "none"
-  #         ini-values: "memory_limit=-1"
-  #     - uses: "ramsey/composer-install@v1"
-  #     - name: "Run PHPStan"
-  #       run: "composer dev:analyze:phpstan"
-  #     - name: "Run Psalm"
-  #       run: "composer dev:analyze:psalm -- --shepherd"
+  static-analysis:
+    name: "Static Analysis"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v2"
+      - uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: "7.4"
+          coverage: "none"
+          ini-values: "memory_limit=-1"
+      - uses: "ramsey/composer-install@v1"
+      - name: "Run PHPStan"
+        run: "composer dev:analyze:phpstan"
+      - name: "Run Psalm"
+        run: "composer dev:analyze:psalm -- --shepherd"
 
   # unit-tests:
   #   name: "Unit Tests"
