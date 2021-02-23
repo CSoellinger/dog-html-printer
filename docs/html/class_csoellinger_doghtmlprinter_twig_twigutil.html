@@ -2,13 +2,13 @@
     <head>
         <title>Dog HTML printer</title>
 
-                <link rel="stylesheet" type="text/css" href="assets/style.66301ec3bfd7f88c5e773ffc990c44b8b43624bc.css" media="all" />
+                <link rel="stylesheet" type="text/css" href="assets/style.de6762514a6123d65d2dd6fbc4c780056fe9b6d4.css" media="all" />
     </head>
 
     <body>
         <div class="container-fluid h-100 mh-100">
             <div class="row main-row h-100 mh-100">
-                <div class="col-2 d-none d-md-flex flex-column h-100 mh-100">
+                <div class="col-2 d-none d-lg-flex flex-column h-100 mh-100">
                     <div class="row align-items-center top-bar bg-secondary bg-gradient top-bar">
                         <div class="col">
                             <div class="position-relative">
@@ -20,9 +20,9 @@
                         <div class="col" id="tree"></div>
                     </div>
                 </div>
-                <div class="col-10 border-start h-100 mh-100 overflow-auto d-flex flex-column content">
+                <div class="col-12 col-lg-10 border-start h-100 mh-100 d-flex flex-column content" style="padding-top: 52px;">
                     <div class="row">
-                        <nav class="col top-bar navbar navbar-expand-lg navbar-light bg-light small shadow-sm border-bottom">
+                        <nav class="col-12 col-lg-10  top-bar navbar navbar-expand-lg navbar-light bg-light small shadow-sm border-bottom position-fixed top-0" style="z-index: 9;">
     <div class="container-fluid px-0">
         <a class="navbar-brand" href="index.html">Dog HTML printer</a>
 
@@ -69,7 +69,10 @@
             </ul>
         </div>
     </div>
-</nav>                    </div>
+</nav>
+                    </div>
+                    <div class="row overflow-auto">
+                        <div class="col">
 
 
 
@@ -101,7 +104,7 @@
 
 <a name="TwigUtil"></a>
 <div class="row py-3">
-    <div class="col-12 col-md-9 object">
+    <div class="col-12 col-lg-9 object">
         <h2>TwigUtil</h2>
         <hr>
 
@@ -115,149 +118,149 @@
                 
                             <div class="mt-2">&nbsp;</div>
 
-            <a name="properties"></a>
-            <div class="card properties">
-                <div class="card-header pl-2">
-                    <h3 class="mb-0 h6">Properties summary</h3>
-                </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table table-sm table-striped mb-0">
-                            <thead>
-                                <tr>
-                                    <th width="20%">Property</th>
-                                    <th width="15%">Type</th>
-                                    <th width="10%">Default</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                                                    <tr>
-                                        <td class="font-weight-bold">$config</td>
-                                        <td>\Klitsche\Dog\ConfigInterface</td>
-                                        <td><i></i></td>
-                                        <td></td>
-                                    </tr>
-                                                                    <tr>
-                                        <td class="font-weight-bold">$currentFileName</td>
-                                        <td>?string</td>
-                                        <td><i>null</i></td>
-                                        <td></td>
-                                    </tr>
-                                                                    <tr>
-                                        <td class="font-weight-bold">$project</td>
-                                        <td>\Klitsche\Dog\ProjectInterface</td>
-                                        <td><i></i></td>
-                                        <td></td>
-                                    </tr>
-                                                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+<a name="properties"></a>
+<div class="card properties">
+    <div class="card-header pl-2">
+        <h3 class="mb-0 h6">Properties summary</h3>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-sm table-striped mb-0 text-break">
+                <thead>
+                                        <tr>
+                        <th width="20%">Property</th>
+                        <th width="20%">Type</th>
+                        <th width="10%">Default</th>
+                        <th>Description</th>
+                    </tr>
+                                </thead>
+                <tbody>
+                                                                <tr>
+                            <td class="font-weight-bold">$project</td>
+                            <td><span title="\Klitsche\Dog\ProjectInterface">ProjectInterface</span></td>
+                            <td><i></i></td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td class="font-weight-bold">$config</td>
+                            <td><span title="\Klitsche\Dog\ConfigInterface">ConfigInterface</span></td>
+                            <td><i></i></td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td class="font-weight-bold">$currentFileName</td>
+                            <td>?string</td>
+                            <td><i>null</i></td>
+                            <td></td>
+                        </tr>
+                                                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
         
                             <div class="mt-2">&nbsp;</div>
 
-            <a name="methods"></a>
-            <div class="card methods">
-                <div class="card-header pl-2">
-                    <h3 class="mb-0 h6">Methods summary</h3>
-                </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table table-sm table-striped mb-0">
-                            <thead>
-                                <tr>
-                                    <th width="20%">Method Name</th>
-                                    <th width="25%">Return Type</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                                                    <tr>
-                                        <td><a href="#method-arrayListToTree">arrayListToTree</a></td>
-                                        <td>array</td>
-                                        <td>Turn an flat array with parents to a tree like array with childs.</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-filterVisibility">filterVisibility</a></td>
-                                        <td>\Klitsche\Dog\Elements\Class_[]|<wbr>\Klitsche\Dog\Elements\ElementInterface[]|<wbr>\Klitsche\Dog\Elements\Interface_[]|<wbr>\Klitsche\Dog\Elements\Trait_[]|<wbr>null</td>
-                                        <td>Filter elements which are private or marked as (@)internal.</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-getElementFilename">getElementFilename</a></td>
-                                        <td>string</td>
-                                        <td>Get filename by an element.</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-getElementsList">getElementsList</a></td>
-                                        <td>array&lt;int,array&lt;string,(bool|<wbr>int|<wbr>string|<wbr>null)&gt;&gt;</td>
-                                        <td>Get all elements as array list. Needed for javascript json data used by
+<a name="methods"></a>
+<div class="card methods">
+    <div class="card-header pl-2">
+        <h3 class="mb-0 h6">Methods summary</h3>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-sm table-striped mb-0 text-break">
+                <thead>
+                                        <tr>
+                        <th width="20%">Method</th>
+                        <th width="25%">Return</th>
+                        <th>Description</th>
+                    </tr>
+                                </thead>
+                <tbody>
+                                                                <tr>
+                            <td><a href="#method-getMarkdownToc">getMarkdownToc</a></td>
+                            <td>array&lt;int,array&lt;string,?string&gt;&gt;</td>
+                            <td>Get a Table-Of-Content(toc) array from markdown.</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-highlightSource">highlightSource</a></td>
+                            <td>?string</td>
+                            <td>Highlight source code, powered by highlight.php.</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-filterVisibility">filterVisibility</a></td>
+                            <td><span title="\Klitsche\Dog\Elements\Class_">Class_</span>[] | <span title="\Klitsche\Dog\Elements\ElementInterface">ElementInterface</span>[] | <span title="\Klitsche\Dog\Elements\Interface_">Interface_</span>[] | <span title="\Klitsche\Dog\Elements\Trait_">Trait_</span>[] | null</td>
+                            <td>Filter elements which are private or marked as (@)internal.</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-getElementsList">getElementsList</a></td>
+                            <td>array&lt;int,array&lt;string,bool | int | string | null&gt;&gt;</td>
+                            <td>Get all elements as array list. Needed for javascript json data used by
 typeahead search and tree view.</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-getMarkdownToc">getMarkdownToc</a></td>
-                                        <td>\CSoellinger\DogHtmlPrinter\Twig\list&lt;array&lt;string,?string&gt;&gt;</td>
-                                        <td>Get a Table-Of-Content(toc) array from markdown.</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-getRootNamespace">getRootNamespace</a></td>
-                                        <td>?\phpDocumentor\Reflection\Fqsen</td>
-                                        <td>Get the first defined namespace as root namespace. Global namespace will be removed before.</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-getSubNamespaces">getSubNamespaces</a></td>
-                                        <td>\phpDocumentor\Reflection\Fqsen[]</td>
-                                        <td>Undocumented function.</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-highlightSource">highlightSource</a></td>
-                                        <td>?string</td>
-                                        <td>Highlight source code, powered by highlight.php.</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-linkFqsen">linkFqsen</a></td>
-                                        <td>?string</td>
-                                        <td>Try to convert fqsen to hyperlinks.</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-resolveDocblockLinks">resolveDocblockLinks</a></td>
-                                        <td>?string</td>
-                                        <td>Try to resolve {@link} from docblocks. For the moment only extern urls
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-shortenFqsen">shortenFqsen</a></td>
+                            <td>?string</td>
+                            <td>Shorten fqsen to element name.</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-getSubNamespaces">getSubNamespaces</a></td>
+                            <td><span title="\phpDocumentor\Reflection\Fqsen">Fqsen</span>[]</td>
+                            <td>Undocumented function.</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-transformPrismHtml">transformPrismHtml</a></td>
+                            <td>?string</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-getRootNamespace">getRootNamespace</a></td>
+                            <td>?<span title="\phpDocumentor\Reflection\Fqsen">Fqsen</span></td>
+                            <td>Get the first defined namespace as root namespace. Global namespace will be removed before.</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-linkFqsen">linkFqsen</a></td>
+                            <td>?string</td>
+                            <td>Try to convert fqsen to hyperlinks.</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-arrayListToTree">arrayListToTree</a></td>
+                            <td>array</td>
+                            <td>Turn an flat array with parents to a tree like array with childs.</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-resolveDocblockLinks">resolveDocblockLinks</a></td>
+                            <td>?string</td>
+                            <td>Try to resolve {@link} from doc blocks. For the moment only extern urls
 are working.</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-shortenFqsen">shortenFqsen</a></td>
-                                        <td>?string</td>
-                                        <td>Shorten fqsen to element name.</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-transformPrismHtml">transformPrismHtml</a></td>
-                                        <td>?string</td>
-                                        <td></td>
-                                    </tr>
-                                                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-getElementFilename">getElementFilename</a></td>
+                            <td>string</td>
+                            <td>Get filename by an element.</td>
+                        </tr>
+                                                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
         
                             <a name="details"></a>
             <h3 class="mt-5">Details</h3>
             <hr>
 
-                            <a name="method-arrayListToTree"></a>
+                            <a name="method-getMarkdownToc"></a>
 <div class="row">
     <div class="col detail-item method">
-        <div class="d-flex method-map map py-2 px-1" id="method-arrayListToTree">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">arrayListToTree</span><span class="hljs-params">(array $flatList, string $idKey=<span class="hljs-string">'id'</span>, string $parentKey=<span class="hljs-string">'parent_id'</span>, string $siblingKey=<span class="hljs-string">'children'</span>)</span>: <span class="hljs-title">array</span></span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line564">564</a>
+        <div class="d-flex method-map map py-2 px-1" id="method-getMarkdownToc">
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getMarkdownToc</span><span class="hljs-params">(string|null $markdown=null, int $minLevel=<span class="hljs-number">1</span>, int $maxLevel=<span class="hljs-number">6</span>)</span>: <span class="hljs-title">array</span>&lt;<span class="hljs-title">int</span>,<span class="hljs-title">array</span>&lt;<span class="hljs-title">string</span>,?<span class="hljs-title">string</span>&gt;&gt;</span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line108">108</a>
                             </div>
                                                     </div>
 
                     <div class="method-description mt-2 p-2">
-                <p>Turn an flat array with parents to a tree like array with childs.</p>
+                <p>Get a Table-Of-Content(toc) array from markdown.</p>
 
 
                                     <small>
@@ -280,28 +283,22 @@ are working.</td>
                         </thead>
                         <tbody>
                                                             <tr>
-                                    <td>$flatList</td>
-                                    <td>array</td>
-                                    <td><i></i></td>
-                                    <td></td>
+                                    <td>$markdown</td>
+                                    <td><span class="text-nowrap">string |</span> <span class="text-nowrap">null</td>
+                                    <td><i>null</i></td>
+                                    <td>Text</td>
                                 </tr>
                                                             <tr>
-                                    <td>$idKey</td>
-                                    <td>string</td>
-                                    <td><i>'id'</i></td>
-                                    <td></td>
+                                    <td>$minLevel</td>
+                                    <td><span class="text-nowrap">int</td>
+                                    <td><i>1</i></td>
+                                    <td>Min heading level</td>
                                 </tr>
                                                             <tr>
-                                    <td>$parentKey</td>
-                                    <td>string</td>
-                                    <td><i>'parent_id'</i></td>
-                                    <td></td>
-                                </tr>
-                                                            <tr>
-                                    <td>$siblingKey</td>
-                                    <td>string</td>
-                                    <td><i>'children'</i></td>
-                                    <td></td>
+                                    <td>$maxLevel</td>
+                                    <td><span class="text-nowrap">int</td>
+                                    <td><i>6</i></td>
+                                    <td>Max heading level</td>
                                 </tr>
                                                     </tbody>
                     </table>
@@ -315,7 +312,74 @@ are working.</td>
                     <table class="table table-sm">
                         <tbody>
                             <tr>
-                                                                    <td width="100%">array</td>
+                                                                    <td width="100%">array<int,array<string,?string>></td>
+                                                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+</div>
+<div class="py-3">&nbsp;</div>
+                            <a name="method-highlightSource"></a>
+<div class="row">
+    <div class="col detail-item method">
+        <div class="d-flex method-map map py-2 px-1" id="method-highlightSource">
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">highlightSource</span><span class="hljs-params">(string|null $source, string $lang=<span class="hljs-string">'auto'</span>)</span>: ?<span class="hljs-title">string</span></span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line155">155</a>
+                            </div>
+                                                    </div>
+
+                    <div class="method-description mt-2 p-2">
+                <p>Highlight source code, powered by highlight.php.</p>
+
+
+                                    <small>
+                        
+                    </small>
+                            </div>
+        
+                    <div class="method-arguments method-parameters px-2">
+                <h4 class="h5">Parameters</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th width="20%">Parameter</th>
+                                <th width="10%">Type</th>
+                                <th width="10%">Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                            <tr>
+                                    <td>$source</td>
+                                    <td><span class="text-nowrap">string |</span> <span class="text-nowrap">null</td>
+                                    <td><i></i></td>
+                                    <td>Source code</td>
+                                </tr>
+                                                            <tr>
+                                    <td>$lang</td>
+                                    <td><span class="text-nowrap">string</td>
+                                    <td><i>'auto'</i></td>
+                                    <td>Source language. Value "auto" selects the language for you, but takes a lot of
+performance</td>
+                                </tr>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        
+                    <div class="method-return px-2">
+                <h4 class="h5">Return value</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                                                    <td width="100%">?string</td>
                                                             </tr>
                         </tbody>
                     </table>
@@ -328,9 +392,9 @@ are working.</td>
 <div class="row">
     <div class="col detail-item method">
         <div class="d-flex method-map map py-2 px-1" id="method-filterVisibility">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterVisibility</span><span class="hljs-params">(\Klitsche\Dog\Elements\Class_[]|\Klitsche\Dog\Elements\ElementInterface[]|\Klitsche\Dog\Elements\Interface_[]|\Klitsche\Dog\Elements\Trait_[]|null $value=null)</span>: \<span class="hljs-title">Klitsche</span>\<span class="hljs-title">Dog</span>\<span class="hljs-title">Elements</span>\<span class="hljs-title">Class_</span>[]|\<span class="hljs-title">Klitsche</span>\<span class="hljs-title">Dog</span>\<span class="hljs-title">Elements</span>\<span class="hljs-title">ElementInterface</span>[]|\<span class="hljs-title">Klitsche</span>\<span class="hljs-title">Dog</span>\<span class="hljs-title">Elements</span>\<span class="hljs-title">Interface_</span>[]|\<span class="hljs-title">Klitsche</span>\<span class="hljs-title">Dog</span>\<span class="hljs-title">Elements</span>\<span class="hljs-title">Trait_</span>[]|<span class="hljs-title">null</span></span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line179">179</a>
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterVisibility</span><span class="hljs-params">(Class_[]|ElementInterface[]|Interface_[]|Trait_[]|null $value=null)</span>: <span class="hljs-title">Class_</span>[]|<span class="hljs-title">ElementInterface</span>[]|<span class="hljs-title">Interface_</span>[]|<span class="hljs-title">Trait_</span>[]|<span class="hljs-title">null</span></span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line187">187</a>
                             </div>
                                                     </div>
 
@@ -359,7 +423,7 @@ are working.</td>
                         <tbody>
                                                             <tr>
                                     <td>$value</td>
-                                    <td>\Klitsche\Dog\Elements\Class_[]|<wbr>\Klitsche\Dog\Elements\ElementInterface[]|<wbr>\Klitsche\Dog\Elements\Interface_[]|<wbr>\Klitsche\Dog\Elements\Trait_[]|<wbr>null</td>
+                                    <td><span class="text-nowrap"><span title="\Klitsche\Dog\Elements\Class_">Class_</span>[] |</span> <span class="text-nowrap"><span title="\Klitsche\Dog\Elements\ElementInterface">ElementInterface</span>[] |</span> <span class="text-nowrap"><span title="\Klitsche\Dog\Elements\Interface_">Interface_</span>[] |</span> <span class="text-nowrap"><span title="\Klitsche\Dog\Elements\Trait_">Trait_</span>[] |</span> <span class="text-nowrap">null</td>
                                     <td><i>null</i></td>
                                     <td></td>
                                 </tr>
@@ -375,73 +439,7 @@ are working.</td>
                     <table class="table table-sm">
                         <tbody>
                             <tr>
-                                                                    <td width="100%">\Klitsche\Dog\Elements\Class_[]|<wbr>\Klitsche\Dog\Elements\ElementInterface[]|<wbr>\Klitsche\Dog\Elements\Interface_[]|<wbr>\Klitsche\Dog\Elements\Trait_[]|<wbr>null</td>
-                                                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            </div>
-</div>
-<div class="py-3">&nbsp;</div>
-                            <a name="method-getElementFilename"></a>
-<div class="row">
-    <div class="col detail-item method">
-        <div class="d-flex method-map map py-2 px-1" id="method-getElementFilename">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getElementFilename</span><span class="hljs-params">(\Klitsche\Dog\Elements\ElementInterface|\phpDocumentor\Reflection\Fqsen|null $element, string $extension=<span class="hljs-string">'html'</span>)</span>: <span class="hljs-title">string</span></span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line638">638</a>
-                            </div>
-                                                    </div>
-
-                    <div class="method-description mt-2 p-2">
-                <p>Get filename by an element.</p>
-
-
-                                    <small>
-                        
-                    </small>
-                            </div>
-        
-                    <div class="method-arguments method-parameters px-2">
-                <h4 class="h5">Parameters</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th width="20%">Parameter</th>
-                                <th width="10%">Type</th>
-                                <th width="10%">Default</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                                            <tr>
-                                    <td>$element</td>
-                                    <td>\Klitsche\Dog\Elements\ElementInterface|<wbr>\phpDocumentor\Reflection\Fqsen|<wbr>null</td>
-                                    <td><i></i></td>
-                                    <td></td>
-                                </tr>
-                                                            <tr>
-                                    <td>$extension</td>
-                                    <td>string</td>
-                                    <td><i>'html'</i></td>
-                                    <td></td>
-                                </tr>
-                                                    </tbody>
-                    </table>
-                </div>
-            </div>
-        
-                    <div class="method-return px-2">
-                <h4 class="h5">Return value</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <tbody>
-                            <tr>
-                                                                    <td width="100%">string</td>
+                                                                    <td width="100%"><span title="\Klitsche\Dog\Elements\Class_">Class_</span>[] | <span title="\Klitsche\Dog\Elements\ElementInterface">ElementInterface</span>[] | <span title="\Klitsche\Dog\Elements\Interface_">Interface_</span>[] | <span title="\Klitsche\Dog\Elements\Trait_">Trait_</span>[] | null</td>
                                                             </tr>
                         </tbody>
                     </table>
@@ -454,9 +452,9 @@ are working.</td>
 <div class="row">
     <div class="col detail-item method">
         <div class="d-flex method-map map py-2 px-1" id="method-getElementsList">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getElementsList</span><span class="hljs-params">(string[] $unsetFields=[])</span>: <span class="hljs-title">array</span>&amp;<span class="hljs-title">lt</span></span>;int,<span class="hljs-keyword">array</span>&amp;lt;string,(bool|int|string|<span class="hljs-keyword">null</span>)&amp;gt;&amp;gt;</code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line239">239</a>
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getElementsList</span><span class="hljs-params">(string[] $unsetFields=[])</span>: <span class="hljs-title">array</span>&lt;<span class="hljs-title">int</span>,<span class="hljs-title">array</span>&lt;<span class="hljs-title">string</span>,<span class="hljs-title">bool</span>|<span class="hljs-title">int</span>|<span class="hljs-title">string</span>|<span class="hljs-title">null</span>&gt;&gt;</span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line247">247</a>
                             </div>
                                                     </div>
 
@@ -486,7 +484,7 @@ typeahead search and tree view.</p>
                         <tbody>
                                                             <tr>
                                     <td>$unsetFields</td>
-                                    <td>string[]</td>
+                                    <td><span class="text-nowrap">string[]</td>
                                     <td><i>[]</i></td>
                                     <td></td>
                                 </tr>
@@ -502,363 +500,7 @@ typeahead search and tree view.</p>
                     <table class="table table-sm">
                         <tbody>
                             <tr>
-                                                                    <td width="100%">array&lt;int,array&lt;string,(bool|<wbr>int|<wbr>string|<wbr>null)&gt;&gt;</td>
-                                                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            </div>
-</div>
-<div class="py-3">&nbsp;</div>
-                            <a name="method-getMarkdownToc"></a>
-<div class="row">
-    <div class="col detail-item method">
-        <div class="d-flex method-map map py-2 px-1" id="method-getMarkdownToc">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getMarkdownToc</span><span class="hljs-params">(string|null $markdown=null, int $minLevel=<span class="hljs-number">1</span>, int $maxLevel=<span class="hljs-number">6</span>)</span>: \<span class="hljs-title">CSoellinger</span>\<span class="hljs-title">DogHtmlPrinter</span>\<span class="hljs-title">Twig</span>\<span class="hljs-title">list</span>&amp;<span class="hljs-title">lt</span></span>;<span class="hljs-keyword">array</span>&amp;lt;string,?string&amp;gt;&amp;gt;</code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line106">106</a>
-                            </div>
-                                                    </div>
-
-                    <div class="method-description mt-2 p-2">
-                <p>Get a Table-Of-Content(toc) array from markdown.</p>
-
-
-                                    <small>
-                        
-                    </small>
-                            </div>
-        
-                    <div class="method-arguments method-parameters px-2">
-                <h4 class="h5">Parameters</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th width="20%">Parameter</th>
-                                <th width="10%">Type</th>
-                                <th width="10%">Default</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                                            <tr>
-                                    <td>$markdown</td>
-                                    <td>string|<wbr>null</td>
-                                    <td><i>null</i></td>
-                                    <td>Text</td>
-                                </tr>
-                                                            <tr>
-                                    <td>$minLevel</td>
-                                    <td>int</td>
-                                    <td><i>1</i></td>
-                                    <td>Min heading level</td>
-                                </tr>
-                                                            <tr>
-                                    <td>$maxLevel</td>
-                                    <td>int</td>
-                                    <td><i>6</i></td>
-                                    <td>Max heading level</td>
-                                </tr>
-                                                    </tbody>
-                    </table>
-                </div>
-            </div>
-        
-                    <div class="method-return px-2">
-                <h4 class="h5">Return value</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <tbody>
-                            <tr>
-                                                                    <td width="100%">\CSoellinger\DogHtmlPrinter\Twig\list&lt;array&lt;string,?string&gt;&gt;</td>
-                                                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            </div>
-</div>
-<div class="py-3">&nbsp;</div>
-                            <a name="method-getRootNamespace"></a>
-<div class="row">
-    <div class="col detail-item method">
-        <div class="d-flex method-map map py-2 px-1" id="method-getRootNamespace">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getRootNamespace</span><span class="hljs-params">()</span>: ?\<span class="hljs-title">phpDocumentor</span>\<span class="hljs-title">Reflection</span>\<span class="hljs-title">Fqsen</span></span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line425">425</a>
-                            </div>
-                                                    </div>
-
-                    <div class="method-description mt-2 p-2">
-                <p>Get the first defined namespace as root namespace. Global namespace will be removed before.</p>
-
-
-                                    <small>
-                        
-                    </small>
-                            </div>
-        
-        
-                    <div class="method-return px-2">
-                <h4 class="h5">Return value</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <tbody>
-                            <tr>
-                                                                    <td width="100%">?\phpDocumentor\Reflection\Fqsen</td>
-                                                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            </div>
-</div>
-<div class="py-3">&nbsp;</div>
-                            <a name="method-getSubNamespaces"></a>
-<div class="row">
-    <div class="col detail-item method">
-        <div class="d-flex method-map map py-2 px-1" id="method-getSubNamespaces">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getSubNamespaces</span><span class="hljs-params">(?\phpDocumentor\Reflection\Fqsen $value=null)</span>: \<span class="hljs-title">phpDocumentor</span>\<span class="hljs-title">Reflection</span>\<span class="hljs-title">Fqsen</span>[]</span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line369">369</a>
-                            </div>
-                                                    </div>
-
-                    <div class="method-description mt-2 p-2">
-                <p>Undocumented function.</p>
-
-
-                                    <small>
-                        
-                    </small>
-                            </div>
-        
-                    <div class="method-arguments method-parameters px-2">
-                <h4 class="h5">Parameters</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th width="20%">Parameter</th>
-                                <th width="10%">Type</th>
-                                <th width="10%">Default</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                                            <tr>
-                                    <td>$value</td>
-                                    <td>?\phpDocumentor\Reflection\Fqsen</td>
-                                    <td><i>null</i></td>
-                                    <td></td>
-                                </tr>
-                                                    </tbody>
-                    </table>
-                </div>
-            </div>
-        
-                    <div class="method-return px-2">
-                <h4 class="h5">Return value</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <tbody>
-                            <tr>
-                                                                    <td width="100%">\phpDocumentor\Reflection\Fqsen[]</td>
-                                                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            </div>
-</div>
-<div class="py-3">&nbsp;</div>
-                            <a name="method-highlightSource"></a>
-<div class="row">
-    <div class="col detail-item method">
-        <div class="d-flex method-map map py-2 px-1" id="method-highlightSource">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">highlightSource</span><span class="hljs-params">(string|null $source, string $lang=<span class="hljs-string">'auto'</span>)</span>: ?<span class="hljs-title">string</span></span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line153">153</a>
-                            </div>
-                                                    </div>
-
-                    <div class="method-description mt-2 p-2">
-                <p>Highlight source code, powered by highlight.php.</p>
-
-
-                                    <small>
-                        
-                    </small>
-                            </div>
-        
-                    <div class="method-arguments method-parameters px-2">
-                <h4 class="h5">Parameters</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th width="20%">Parameter</th>
-                                <th width="10%">Type</th>
-                                <th width="10%">Default</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                                            <tr>
-                                    <td>$source</td>
-                                    <td>string|<wbr>null</td>
-                                    <td><i></i></td>
-                                    <td>Source code</td>
-                                </tr>
-                                                            <tr>
-                                    <td>$lang</td>
-                                    <td>string</td>
-                                    <td><i>'auto'</i></td>
-                                    <td>Source language. Value "auto" selects the language for you, but takes a lot of
-performance</td>
-                                </tr>
-                                                    </tbody>
-                    </table>
-                </div>
-            </div>
-        
-                    <div class="method-return px-2">
-                <h4 class="h5">Return value</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <tbody>
-                            <tr>
-                                                                    <td width="100%">?string</td>
-                                                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            </div>
-</div>
-<div class="py-3">&nbsp;</div>
-                            <a name="method-linkFqsen"></a>
-<div class="row">
-    <div class="col detail-item method">
-        <div class="d-flex method-map map py-2 px-1" id="method-linkFqsen">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">linkFqsen</span><span class="hljs-params">(?string $value=null)</span>: ?<span class="hljs-title">string</span></span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line453">453</a>
-                            </div>
-                                                    </div>
-
-                    <div class="method-description mt-2 p-2">
-                <p>Try to convert fqsen to hyperlinks.</p>
-
-
-                                    <small>
-                        
-                    </small>
-                            </div>
-        
-                    <div class="method-arguments method-parameters px-2">
-                <h4 class="h5">Parameters</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th width="20%">Parameter</th>
-                                <th width="10%">Type</th>
-                                <th width="10%">Default</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                                            <tr>
-                                    <td>$value</td>
-                                    <td>?string</td>
-                                    <td><i>null</i></td>
-                                    <td></td>
-                                </tr>
-                                                    </tbody>
-                    </table>
-                </div>
-            </div>
-        
-                    <div class="method-return px-2">
-                <h4 class="h5">Return value</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <tbody>
-                            <tr>
-                                                                    <td width="100%">?string</td>
-                                                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            </div>
-</div>
-<div class="py-3">&nbsp;</div>
-                            <a name="method-resolveDocblockLinks"></a>
-<div class="row">
-    <div class="col detail-item method">
-        <div class="d-flex method-map map py-2 px-1" id="method-resolveDocblockLinks">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">resolveDocblockLinks</span><span class="hljs-params">(?string $value=null)</span>: ?<span class="hljs-title">string</span></span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line603">603</a>
-                            </div>
-                                                    </div>
-
-                    <div class="method-description mt-2 p-2">
-                <p>Try to resolve {@link} from docblocks. For the moment only extern urls
-are working.</p>
-
-
-                                    <small>
-                        
-                    </small>
-                            </div>
-        
-                    <div class="method-arguments method-parameters px-2">
-                <h4 class="h5">Parameters</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th width="20%">Parameter</th>
-                                <th width="10%">Type</th>
-                                <th width="10%">Default</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                                            <tr>
-                                    <td>$value</td>
-                                    <td>?string</td>
-                                    <td><i>null</i></td>
-                                    <td></td>
-                                </tr>
-                                                    </tbody>
-                    </table>
-                </div>
-            </div>
-        
-                    <div class="method-return px-2">
-                <h4 class="h5">Return value</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <tbody>
-                            <tr>
-                                                                    <td width="100%">?string</td>
+                                                                    <td width="100%">array<int,array<string,bool | int | string | null>></td>
                                                             </tr>
                         </tbody>
                     </table>
@@ -871,9 +513,9 @@ are working.</p>
 <div class="row">
     <div class="col detail-item method">
         <div class="d-flex method-map map py-2 px-1" id="method-shortenFqsen">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">shortenFqsen</span><span class="hljs-params">(?string $value=null)</span>: ?<span class="hljs-title">string</span></span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line334">334</a>
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">shortenFqsen</span><span class="hljs-params">(?string $value=null)</span>: ?<span class="hljs-title">string</span></span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line342">342</a>
                             </div>
                                                     </div>
 
@@ -902,7 +544,7 @@ are working.</p>
                         <tbody>
                                                             <tr>
                                     <td>$value</td>
-                                    <td>?string</td>
+                                    <td><span class="text-nowrap">?string</td>
                                     <td><i>null</i></td>
                                     <td></td>
                                 </tr>
@@ -927,13 +569,73 @@ are working.</p>
             </div>
 </div>
 <div class="py-3">&nbsp;</div>
+                            <a name="method-getSubNamespaces"></a>
+<div class="row">
+    <div class="col detail-item method">
+        <div class="d-flex method-map map py-2 px-1" id="method-getSubNamespaces">
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getSubNamespaces</span><span class="hljs-params">(Fqsen $value=null)</span>: <span class="hljs-title">Fqsen</span>[]</span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line371">371</a>
+                            </div>
+                                                    </div>
+
+                    <div class="method-description mt-2 p-2">
+                <p>Undocumented function.</p>
+
+
+                                    <small>
+                        
+                    </small>
+                            </div>
+        
+                    <div class="method-arguments method-parameters px-2">
+                <h4 class="h5">Parameters</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th width="20%">Parameter</th>
+                                <th width="10%">Type</th>
+                                <th width="10%">Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                            <tr>
+                                    <td>$value</td>
+                                    <td><span class="text-nowrap">?<span title="\phpDocumentor\Reflection\Fqsen">Fqsen</span></td>
+                                    <td><i>null</i></td>
+                                    <td></td>
+                                </tr>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        
+                    <div class="method-return px-2">
+                <h4 class="h5">Return value</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                                                    <td width="100%"><span title="\phpDocumentor\Reflection\Fqsen">Fqsen</span>[]</td>
+                                                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+</div>
+<div class="py-3">&nbsp;</div>
                             <a name="method-transformPrismHtml"></a>
 <div class="row">
     <div class="col detail-item method">
         <div class="d-flex method-map map py-2 px-1" id="method-transformPrismHtml">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">transformPrismHtml</span><span class="hljs-params">(?string $value=null)</span>: ?<span class="hljs-title">string</span></span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line403">403</a>
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">transformPrismHtml</span><span class="hljs-params">(?string $value=null)</span>: ?<span class="hljs-title">string</span></span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line405">405</a>
                             </div>
                                                     </div>
 
@@ -954,7 +656,7 @@ are working.</p>
                         <tbody>
                                                             <tr>
                                     <td>$value</td>
-                                    <td>?string</td>
+                                    <td><span class="text-nowrap">?string</td>
                                     <td><i>null</i></td>
                                     <td></td>
                                 </tr>
@@ -979,9 +681,311 @@ are working.</p>
             </div>
 </div>
 <div class="py-3">&nbsp;</div>
+                            <a name="method-getRootNamespace"></a>
+<div class="row">
+    <div class="col detail-item method">
+        <div class="d-flex method-map map py-2 px-1" id="method-getRootNamespace">
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getRootNamespace</span><span class="hljs-params">()</span>: <span class="hljs-title">Fqsen</span></span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line427">427</a>
+                            </div>
+                                                    </div>
+
+                    <div class="method-description mt-2 p-2">
+                <p>Get the first defined namespace as root namespace. Global namespace will be removed before.</p>
+
+
+                                    <small>
+                        
+                    </small>
+                            </div>
+        
+        
+                    <div class="method-return px-2">
+                <h4 class="h5">Return value</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                                                    <td width="100%">?<span title="\phpDocumentor\Reflection\Fqsen">Fqsen</span></td>
+                                                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+</div>
+<div class="py-3">&nbsp;</div>
+                            <a name="method-linkFqsen"></a>
+<div class="row">
+    <div class="col detail-item method">
+        <div class="d-flex method-map map py-2 px-1" id="method-linkFqsen">
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">linkFqsen</span><span class="hljs-params">(?string $value=null)</span>: ?<span class="hljs-title">string</span></span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line455">455</a>
+                            </div>
+                                                    </div>
+
+                    <div class="method-description mt-2 p-2">
+                <p>Try to convert fqsen to hyperlinks.</p>
+
+
+                                    <small>
+                        
+                    </small>
+                            </div>
+        
+                    <div class="method-arguments method-parameters px-2">
+                <h4 class="h5">Parameters</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th width="20%">Parameter</th>
+                                <th width="10%">Type</th>
+                                <th width="10%">Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                            <tr>
+                                    <td>$value</td>
+                                    <td><span class="text-nowrap">?string</td>
+                                    <td><i>null</i></td>
+                                    <td></td>
+                                </tr>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        
+                    <div class="method-return px-2">
+                <h4 class="h5">Return value</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                                                    <td width="100%">?string</td>
+                                                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+</div>
+<div class="py-3">&nbsp;</div>
+                            <a name="method-arrayListToTree"></a>
+<div class="row">
+    <div class="col detail-item method">
+        <div class="d-flex method-map map py-2 px-1" id="method-arrayListToTree">
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">arrayListToTree</span><span class="hljs-params">(array $flatList, string $idKey=<span class="hljs-string">'id'</span>, string $parentKey=<span class="hljs-string">'parent_id'</span>, string $siblingKey=<span class="hljs-string">'children'</span>)</span>: <span class="hljs-title">array</span></span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line583">583</a>
+                            </div>
+                                                    </div>
+
+                    <div class="method-description mt-2 p-2">
+                <p>Turn an flat array with parents to a tree like array with childs.</p>
+
+
+                                    <small>
+                        
+                    </small>
+                            </div>
+        
+                    <div class="method-arguments method-parameters px-2">
+                <h4 class="h5">Parameters</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th width="20%">Parameter</th>
+                                <th width="10%">Type</th>
+                                <th width="10%">Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                            <tr>
+                                    <td>$flatList</td>
+                                    <td><span class="text-nowrap">array</td>
+                                    <td><i></i></td>
+                                    <td></td>
+                                </tr>
+                                                            <tr>
+                                    <td>$idKey</td>
+                                    <td><span class="text-nowrap">string</td>
+                                    <td><i>'id'</i></td>
+                                    <td></td>
+                                </tr>
+                                                            <tr>
+                                    <td>$parentKey</td>
+                                    <td><span class="text-nowrap">string</td>
+                                    <td><i>'parent_id'</i></td>
+                                    <td></td>
+                                </tr>
+                                                            <tr>
+                                    <td>$siblingKey</td>
+                                    <td><span class="text-nowrap">string</td>
+                                    <td><i>'children'</i></td>
+                                    <td></td>
+                                </tr>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        
+                    <div class="method-return px-2">
+                <h4 class="h5">Return value</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                                                    <td width="100%">array</td>
+                                                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+</div>
+<div class="py-3">&nbsp;</div>
+                            <a name="method-resolveDocblockLinks"></a>
+<div class="row">
+    <div class="col detail-item method">
+        <div class="d-flex method-map map py-2 px-1" id="method-resolveDocblockLinks">
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">resolveDocblockLinks</span><span class="hljs-params">(?string $value=null)</span>: ?<span class="hljs-title">string</span></span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line622">622</a>
+                            </div>
+                                                    </div>
+
+                    <div class="method-description mt-2 p-2">
+                <p>Try to resolve {@link} from doc blocks. For the moment only extern urls
+are working.</p>
+
+
+                                    <small>
+                        
+                    </small>
+                            </div>
+        
+                    <div class="method-arguments method-parameters px-2">
+                <h4 class="h5">Parameters</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th width="20%">Parameter</th>
+                                <th width="10%">Type</th>
+                                <th width="10%">Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                            <tr>
+                                    <td>$value</td>
+                                    <td><span class="text-nowrap">?string</td>
+                                    <td><i>null</i></td>
+                                    <td></td>
+                                </tr>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        
+                    <div class="method-return px-2">
+                <h4 class="h5">Return value</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                                                    <td width="100%">?string</td>
+                                                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+</div>
+<div class="py-3">&nbsp;</div>
+                            <a name="method-getElementFilename"></a>
+<div class="row">
+    <div class="col detail-item method">
+        <div class="d-flex method-map map py-2 px-1" id="method-getElementFilename">
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getElementFilename</span><span class="hljs-params">(ElementInterface|Fqsen|null $element, string $extension=<span class="hljs-string">'html'</span>)</span>: <span class="hljs-title">string</span></span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_twigutil.html#line657">657</a>
+                            </div>
+                                                    </div>
+
+                    <div class="method-description mt-2 p-2">
+                <p>Get filename by an element.</p>
+
+
+                                    <small>
+                        
+                    </small>
+                            </div>
+        
+                    <div class="method-arguments method-parameters px-2">
+                <h4 class="h5">Parameters</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th width="20%">Parameter</th>
+                                <th width="10%">Type</th>
+                                <th width="10%">Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                            <tr>
+                                    <td>$element</td>
+                                    <td><span class="text-nowrap"><span title="\Klitsche\Dog\Elements\ElementInterface">ElementInterface</span> |</span> <span class="text-nowrap"><span title="\phpDocumentor\Reflection\Fqsen">Fqsen</span> |</span> <span class="text-nowrap">null</td>
+                                    <td><i></i></td>
+                                    <td></td>
+                                </tr>
+                                                            <tr>
+                                    <td>$extension</td>
+                                    <td><span class="text-nowrap">string</td>
+                                    <td><i>'html'</i></td>
+                                    <td></td>
+                                </tr>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        
+                    <div class="method-return px-2">
+                <h4 class="h5">Return value</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                                                    <td width="100%">string</td>
+                                                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+</div>
+<div class="py-3">&nbsp;</div>
                         </div>
-    <div class="d-none d-md-block col-3">
-    <div class="w-100 border p-2 position-sticky" style="top: 2rem;">
+
+        <div class="d-none d-lg-block col-3">
+    <div class="w-100 border p-2 position-sticky" style="top: 1rem;">
         <div class="small text-muted">On this page</div>
 
                     <ul class="list-unstyled mb-0 small">
@@ -998,18 +1002,18 @@ are working.</p>
                         <a href="#details" class="text-reset">Details</a>
 
                         <ul>
-                                                            <li><a href="#method-arrayListToTree" class="text-reset">arrayListToTree</a></li>
-                                                            <li><a href="#method-filterVisibility" class="text-reset">filterVisibility</a></li>
-                                                            <li><a href="#method-getElementFilename" class="text-reset">getElementFilename</a></li>
-                                                            <li><a href="#method-getElementsList" class="text-reset">getElementsList</a></li>
                                                             <li><a href="#method-getMarkdownToc" class="text-reset">getMarkdownToc</a></li>
-                                                            <li><a href="#method-getRootNamespace" class="text-reset">getRootNamespace</a></li>
-                                                            <li><a href="#method-getSubNamespaces" class="text-reset">getSubNamespaces</a></li>
                                                             <li><a href="#method-highlightSource" class="text-reset">highlightSource</a></li>
-                                                            <li><a href="#method-linkFqsen" class="text-reset">linkFqsen</a></li>
-                                                            <li><a href="#method-resolveDocblockLinks" class="text-reset">resolveDocblockLinks</a></li>
+                                                            <li><a href="#method-filterVisibility" class="text-reset">filterVisibility</a></li>
+                                                            <li><a href="#method-getElementsList" class="text-reset">getElementsList</a></li>
                                                             <li><a href="#method-shortenFqsen" class="text-reset">shortenFqsen</a></li>
+                                                            <li><a href="#method-getSubNamespaces" class="text-reset">getSubNamespaces</a></li>
                                                             <li><a href="#method-transformPrismHtml" class="text-reset">transformPrismHtml</a></li>
+                                                            <li><a href="#method-getRootNamespace" class="text-reset">getRootNamespace</a></li>
+                                                            <li><a href="#method-linkFqsen" class="text-reset">linkFqsen</a></li>
+                                                            <li><a href="#method-arrayListToTree" class="text-reset">arrayListToTree</a></li>
+                                                            <li><a href="#method-resolveDocblockLinks" class="text-reset">resolveDocblockLinks</a></li>
+                                                            <li><a href="#method-getElementFilename" class="text-reset">getElementFilename</a></li>
                                                     </ul>
                     </li>
                             </ul>
@@ -1019,15 +1023,17 @@ are working.</p>
 </div>
 </div>
 
-                <div class="row flex-grow-1"><div class="col">&nbsp;</div></div>
-                <div class="row">
-                    <div class="col text-muted text-end small">
-                        Generated by <a href="https://klitsche.github.io/dog/" target="_blank" class="text-reset text-decoration-underline">Dog, a slim source code documentation generator</a>.
-                        Printed with <a href="https://github.com/CSoellinger/dog-html-printer" target="_blank" class="text-reset text-decoration-underline">Dog-HtmlPrinter</a>.
+                            <div class="row flex-grow-1"><div class="col">&nbsp;</div></div>
+                            <div class="row">
+                                <div class="col text-muted text-end small">
+                                    Generated by <a href="https://klitsche.github.io/dog/" target="_blank" class="text-reset text-decoration-underline">Dog, a slim source code documentation generator</a>.
+                                    Printed with <a href="https://github.com/CSoellinger/dog-html-printer" target="_blank" class="text-reset text-decoration-underline">Dog-HtmlPrinter</a>.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
 
         <script>

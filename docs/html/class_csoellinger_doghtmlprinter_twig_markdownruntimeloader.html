@@ -2,13 +2,13 @@
     <head>
         <title>Dog HTML printer</title>
 
-                <link rel="stylesheet" type="text/css" href="assets/style.66301ec3bfd7f88c5e773ffc990c44b8b43624bc.css" media="all" />
+                <link rel="stylesheet" type="text/css" href="assets/style.de6762514a6123d65d2dd6fbc4c780056fe9b6d4.css" media="all" />
     </head>
 
     <body>
         <div class="container-fluid h-100 mh-100">
             <div class="row main-row h-100 mh-100">
-                <div class="col-2 d-none d-md-flex flex-column h-100 mh-100">
+                <div class="col-2 d-none d-lg-flex flex-column h-100 mh-100">
                     <div class="row align-items-center top-bar bg-secondary bg-gradient top-bar">
                         <div class="col">
                             <div class="position-relative">
@@ -20,9 +20,9 @@
                         <div class="col" id="tree"></div>
                     </div>
                 </div>
-                <div class="col-10 border-start h-100 mh-100 overflow-auto d-flex flex-column content">
+                <div class="col-12 col-lg-10 border-start h-100 mh-100 d-flex flex-column content" style="padding-top: 52px;">
                     <div class="row">
-                        <nav class="col top-bar navbar navbar-expand-lg navbar-light bg-light small shadow-sm border-bottom">
+                        <nav class="col-12 col-lg-10  top-bar navbar navbar-expand-lg navbar-light bg-light small shadow-sm border-bottom position-fixed top-0" style="z-index: 9;">
     <div class="container-fluid px-0">
         <a class="navbar-brand" href="index.html">Dog HTML printer</a>
 
@@ -69,7 +69,10 @@
             </ul>
         </div>
     </div>
-</nav>                    </div>
+</nav>
+                    </div>
+                    <div class="row overflow-auto">
+                        <div class="col">
 
 
 
@@ -101,7 +104,7 @@
 
 <a name="MarkdownRuntimeLoader"></a>
 <div class="row py-3">
-    <div class="col-12 col-md-9 object">
+    <div class="col-12 col-lg-9 object">
         <h2>MarkdownRuntimeLoader</h2>
         <hr>
 
@@ -116,32 +119,32 @@
                 
                             <div class="mt-2">&nbsp;</div>
 
-            <a name="methods"></a>
-            <div class="card methods">
-                <div class="card-header pl-2">
-                    <h3 class="mb-0 h6">Methods summary</h3>
-                </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table table-sm table-striped mb-0">
-                            <thead>
-                                <tr>
-                                    <th width="20%">Method Name</th>
-                                    <th width="25%">Return Type</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                                                    <tr>
-                                        <td><a href="#method-load">load</a></td>
-                                        <td>?\Twig\Extra\Markdown\MarkdownRuntime</td>
-                                        <td></td>
-                                    </tr>
-                                                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+<a name="methods"></a>
+<div class="card methods">
+    <div class="card-header pl-2">
+        <h3 class="mb-0 h6">Methods summary</h3>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-sm table-striped mb-0 text-break">
+                <thead>
+                                        <tr>
+                        <th width="20%">Method</th>
+                        <th width="25%">Return</th>
+                        <th>Description</th>
+                    </tr>
+                                </thead>
+                <tbody>
+                                                                <tr>
+                            <td><a href="#method-load">load</a></td>
+                            <td>?<span title="\Twig\Extra\Markdown\MarkdownRuntime">MarkdownRuntime</span></td>
+                            <td></td>
+                        </tr>
+                                                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
         
                             <a name="details"></a>
             <h3 class="mt-5">Details</h3>
@@ -151,9 +154,9 @@
 <div class="row">
     <div class="col detail-item method">
         <div class="d-flex method-map map py-2 px-1" id="method-load">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">load</span><span class="hljs-params">(string $class)</span>: ?\<span class="hljs-title">Twig</span>\<span class="hljs-title">Extra</span>\<span class="hljs-title">Markdown</span>\<span class="hljs-title">MarkdownRuntime</span></span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_markdownruntimeloader.html#line37">37</a>
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">load</span><span class="hljs-params">(string $class)</span>: <span class="hljs-title">MarkdownRuntime</span></span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_twig_markdownruntimeloader.html#line39">39</a>
                             </div>
                                                     </div>
 
@@ -174,7 +177,7 @@
                         <tbody>
                                                             <tr>
                                     <td>$class</td>
-                                    <td>string</td>
+                                    <td><span class="text-nowrap">string</td>
                                     <td><i></i></td>
                                     <td></td>
                                 </tr>
@@ -190,7 +193,7 @@
                     <table class="table table-sm">
                         <tbody>
                             <tr>
-                                                                    <td width="100%">?\Twig\Extra\Markdown\MarkdownRuntime</td>
+                                                                    <td width="100%">?<span title="\Twig\Extra\Markdown\MarkdownRuntime">MarkdownRuntime</span></td>
                                                             </tr>
                         </tbody>
                     </table>
@@ -200,8 +203,9 @@
 </div>
 <div class="py-3">&nbsp;</div>
                         </div>
-    <div class="d-none d-md-block col-3">
-    <div class="w-100 border p-2 position-sticky" style="top: 2rem;">
+
+        <div class="d-none d-lg-block col-3">
+    <div class="w-100 border p-2 position-sticky" style="top: 1rem;">
         <div class="small text-muted">On this page</div>
 
                     <ul class="list-unstyled mb-0 small">
@@ -227,15 +231,17 @@
 </div>
 </div>
 
-                <div class="row flex-grow-1"><div class="col">&nbsp;</div></div>
-                <div class="row">
-                    <div class="col text-muted text-end small">
-                        Generated by <a href="https://klitsche.github.io/dog/" target="_blank" class="text-reset text-decoration-underline">Dog, a slim source code documentation generator</a>.
-                        Printed with <a href="https://github.com/CSoellinger/dog-html-printer" target="_blank" class="text-reset text-decoration-underline">Dog-HtmlPrinter</a>.
+                            <div class="row flex-grow-1"><div class="col">&nbsp;</div></div>
+                            <div class="row">
+                                <div class="col text-muted text-end small">
+                                    Generated by <a href="https://klitsche.github.io/dog/" target="_blank" class="text-reset text-decoration-underline">Dog, a slim source code documentation generator</a>.
+                                    Printed with <a href="https://github.com/CSoellinger/dog-html-printer" target="_blank" class="text-reset text-decoration-underline">Dog-HtmlPrinter</a>.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
 
         <script>

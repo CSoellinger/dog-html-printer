@@ -2,13 +2,13 @@
     <head>
         <title>Dog HTML printer</title>
 
-                <link rel="stylesheet" type="text/css" href="assets/style.66301ec3bfd7f88c5e773ffc990c44b8b43624bc.css" media="all" />
+                <link rel="stylesheet" type="text/css" href="assets/style.de6762514a6123d65d2dd6fbc4c780056fe9b6d4.css" media="all" />
     </head>
 
     <body>
         <div class="container-fluid h-100 mh-100">
             <div class="row main-row h-100 mh-100">
-                <div class="col-2 d-none d-md-flex flex-column h-100 mh-100">
+                <div class="col-2 d-none d-lg-flex flex-column h-100 mh-100">
                     <div class="row align-items-center top-bar bg-secondary bg-gradient top-bar">
                         <div class="col">
                             <div class="position-relative">
@@ -20,9 +20,9 @@
                         <div class="col" id="tree"></div>
                     </div>
                 </div>
-                <div class="col-10 border-start h-100 mh-100 overflow-auto d-flex flex-column content">
+                <div class="col-12 col-lg-10 border-start h-100 mh-100 d-flex flex-column content" style="padding-top: 52px;">
                     <div class="row">
-                        <nav class="col top-bar navbar navbar-expand-lg navbar-light bg-light small shadow-sm border-bottom">
+                        <nav class="col-12 col-lg-10  top-bar navbar navbar-expand-lg navbar-light bg-light small shadow-sm border-bottom position-fixed top-0" style="z-index: 9;">
     <div class="container-fluid px-0">
         <a class="navbar-brand" href="index.html">Dog HTML printer</a>
 
@@ -69,7 +69,10 @@
             </ul>
         </div>
     </div>
-</nav>                    </div>
+</nav>
+                    </div>
+                    <div class="row overflow-auto">
+                        <div class="col">
 
 
 <div class="row pt-4">
@@ -120,15 +123,15 @@
 <p>First: You need to install <a href="https://github.com/klitsche/dog">Dog PHP Documentation Generator</a>.</p>
 <p>Second: For now you have to allow minimum stability <em>dev</em> inside composer file cause the latest version of <a href="https://github.com/scrivo/highlight.php">highlight.php</a> works like a charm but isn't released yet, so we use the dev-master branch.</p>
 <p>Add this to your composer.json file:</p>
-<pre><code class="hljs json">{
+<code class="hljs json">{
     <span class="hljs-attr">"minimum-stability"</span>: <span class="hljs-string">"dev"</span>,
     <span class="hljs-attr">"prefer-stable"</span> : <span class="hljs-literal">true</span>,
-}</code></pre>
+}</code>
 <p>At least install the html printer:</p>
-<pre><code class="hljs bash">composer require --dev csoellinger/dog-html-printer</code></pre>
+<code class="hljs bash">composer require --dev csoellinger/dog-html-printer</code>
 <h2>Usage<a id="user-content-usage" href="#usage" name="usage" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
 <p>After you have installed <a href="https://github.com/klitsche/dog">Dog</a> and <a href="https://github.com/csoellinger/dog-html-printer">Dog HTML printer</a> you can customize your <em>.dog.yml</em> to use the new printer class.</p>
-<pre><code class="hljs yaml"><span class="hljs-comment"># Most configurations are by the dog package itself.</span>
+<code class="hljs yaml"><span class="hljs-comment"># Most configurations are by the dog package itself.</span>
 
 <span class="hljs-comment"># Title</span>
 <span class="hljs-attr">title:</span> <span class="hljs-string">'Dog HTML printer'</span>
@@ -179,9 +182,9 @@
 <span class="hljs-attr">cacheDir:</span> <span class="hljs-string">'build/cache'</span>
 
 <span class="hljs-comment"># Enable or disable debug mode - helps when tweaking templates</span>
-<span class="hljs-attr">debug:</span> <span class="hljs-literal">false</span></code></pre>
+<span class="hljs-attr">debug:</span> <span class="hljs-literal">false</span></code>
 <p>Right after customizing the configuration you can start building your documentation.</p>
-<pre><code class="hljs bash">vendor/bin/dog</code></pre>
+<code class="hljs bash">vendor/bin/dog</code>
 <h2>Documentation / Demo<a id="user-content-documentation--demo" href="#documentation--demo" name="documentation--demo" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
 <p><a href="https://csoellinger.github.io/dog-html-printer">https://csoellinger.github.io/dog-html-printer</a></p>
 <h2>Contributing<a id="user-content-contributing" href="#contributing" name="contributing" class="heading-permalink" aria-hidden="true" title="Permalink">¶</a></h2>
@@ -221,8 +224,8 @@ and licensed for use under the terms of the
 MIT License (MIT). Please see <a href="LICENSE">LICENSE</a> for more information.</p>
 
     </div>
-    <div class="d-none d-md-block col-3">
-    <div class="w-100 border p-2 position-sticky" style="top: 2rem;">
+    <div class="d-none d-lg-block col-3">
+    <div class="w-100 border p-2 position-sticky" style="top: 1rem;">
         <div class="small text-muted">On this page</div>
 
                     
@@ -270,15 +273,17 @@ MIT License (MIT). Please see <a href="LICENSE">LICENSE</a> for more information
 </div>
 </div>
 
-                <div class="row flex-grow-1"><div class="col">&nbsp;</div></div>
-                <div class="row">
-                    <div class="col text-muted text-end small">
-                        Generated by <a href="https://klitsche.github.io/dog/" target="_blank" class="text-reset text-decoration-underline">Dog, a slim source code documentation generator</a>.
-                        Printed with <a href="https://github.com/CSoellinger/dog-html-printer" target="_blank" class="text-reset text-decoration-underline">Dog-HtmlPrinter</a>.
+                            <div class="row flex-grow-1"><div class="col">&nbsp;</div></div>
+                            <div class="row">
+                                <div class="col text-muted text-end small">
+                                    Generated by <a href="https://klitsche.github.io/dog/" target="_blank" class="text-reset text-decoration-underline">Dog, a slim source code documentation generator</a>.
+                                    Printed with <a href="https://github.com/CSoellinger/dog-html-printer" target="_blank" class="text-reset text-decoration-underline">Dog-HtmlPrinter</a>.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
 
         <script>

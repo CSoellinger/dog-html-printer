@@ -2,13 +2,13 @@
     <head>
         <title>Dog HTML printer</title>
 
-                <link rel="stylesheet" type="text/css" href="assets/style.66301ec3bfd7f88c5e773ffc990c44b8b43624bc.css" media="all" />
+                <link rel="stylesheet" type="text/css" href="assets/style.de6762514a6123d65d2dd6fbc4c780056fe9b6d4.css" media="all" />
     </head>
 
     <body>
         <div class="container-fluid h-100 mh-100">
             <div class="row main-row h-100 mh-100">
-                <div class="col-2 d-none d-md-flex flex-column h-100 mh-100">
+                <div class="col-2 d-none d-lg-flex flex-column h-100 mh-100">
                     <div class="row align-items-center top-bar bg-secondary bg-gradient top-bar">
                         <div class="col">
                             <div class="position-relative">
@@ -20,9 +20,9 @@
                         <div class="col" id="tree"></div>
                     </div>
                 </div>
-                <div class="col-10 border-start h-100 mh-100 overflow-auto d-flex flex-column content">
+                <div class="col-12 col-lg-10 border-start h-100 mh-100 d-flex flex-column content" style="padding-top: 52px;">
                     <div class="row">
-                        <nav class="col top-bar navbar navbar-expand-lg navbar-light bg-light small shadow-sm border-bottom">
+                        <nav class="col-12 col-lg-10  top-bar navbar navbar-expand-lg navbar-light bg-light small shadow-sm border-bottom position-fixed top-0" style="z-index: 9;">
     <div class="container-fluid px-0">
         <a class="navbar-brand" href="index.html">Dog HTML printer</a>
 
@@ -69,7 +69,10 @@
             </ul>
         </div>
     </div>
-</nav>                    </div>
+</nav>
+                    </div>
+                    <div class="row overflow-auto">
+                        <div class="col">
 
 
     
@@ -94,7 +97,7 @@
 
 <a name="HtmlPrinter"></a>
 <div class="row py-3">
-    <div class="col-12 col-md-9 object">
+    <div class="col-12 col-lg-9 object">
         <h2>HtmlPrinter</h2>
         <hr>
 
@@ -115,48 +118,48 @@
                 
                             <div class="mt-2">&nbsp;</div>
 
-            <a name="methods"></a>
-            <div class="card methods">
-                <div class="card-header pl-2">
-                    <h3 class="mb-0 h6">Methods summary</h3>
-                </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table table-sm table-striped mb-0">
-                            <thead>
-                                <tr>
-                                    <th width="20%">Method Name</th>
-                                    <th width="25%">Return Type</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                                                    <tr>
-                                        <td><a href="#method-__construct">__construct</a></td>
-                                        <td></td>
-                                        <td>Create new printer instance with the given config, event dispatcher and render environment.</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-create">create</a></td>
-                                        <td>self</td>
-                                        <td>Create new instance for HtmlPrinter and return it. Initialize loader for
+<a name="methods"></a>
+<div class="card methods">
+    <div class="card-header pl-2">
+        <h3 class="mb-0 h6">Methods summary</h3>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-sm table-striped mb-0 text-break">
+                <thead>
+                                        <tr>
+                        <th width="20%">Method</th>
+                        <th width="25%">Return</th>
+                        <th>Description</th>
+                    </tr>
+                                </thead>
+                <tbody>
+                                                                <tr>
+                            <td><a href="#method-__construct">__construct</a></td>
+                            <td></td>
+                            <td>Create new printer instance with the given config, event dispatcher and render environment.</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-print">print</a></td>
+                            <td>void</td>
+                            <td>Print function used by DOG the documentation generator.</td>
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-getPrinterRootDir">getPrinterRootDir</a></td>
+                            <td>string</td>
+                            <td></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="#method-create">create</a></td>
+                            <td>self</td>
+                            <td>Create new instance for HtmlPrinter and return it. Initialize loader for
 templates and twig environment with given config (cache,..).</td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-getPrinterRootDir">getPrinterRootDir</a></td>
-                                        <td>string</td>
-                                        <td></td>
-                                    </tr>
-                                                                    <tr>
-                                        <td><a href="#method-print">print</a></td>
-                                        <td>void</td>
-                                        <td>Print function used by DOG the documentation generator.</td>
-                                    </tr>
-                                                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                        </tr>
+                                                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
         
                             <a name="details"></a>
             <h3 class="mt-5">Details</h3>
@@ -166,9 +169,9 @@ templates and twig environment with given config (cache,..).</td>
 <div class="row">
     <div class="col detail-item method">
         <div class="d-flex method-map map py-2 px-1" id="method-__construct">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">final</span> <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span><span class="hljs-params">(\Klitsche\Dog\ConfigInterface $config, ?\Psr\EventDispatcher\EventDispatcherInterface $dispatcher, \Twig\Environment $twig)</span>:</span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_htmlprinter.html#line117">117</a>
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">final</span> <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span><span class="hljs-params">(ConfigInterface $config, EventDispatcherInterface $dispatcher, Environment $twig)</span>: </span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_htmlprinter.html#line119">119</a>
                             </div>
                                                     </div>
 
@@ -197,19 +200,19 @@ templates and twig environment with given config (cache,..).</td>
                         <tbody>
                                                             <tr>
                                     <td>$config</td>
-                                    <td>\Klitsche\Dog\ConfigInterface</td>
+                                    <td><span class="text-nowrap"><span title="\Klitsche\Dog\ConfigInterface">ConfigInterface</span></td>
                                     <td><i></i></td>
                                     <td>Printer configuration</td>
                                 </tr>
                                                             <tr>
                                     <td>$dispatcher</td>
-                                    <td>?\Psr\EventDispatcher\EventDispatcherInterface</td>
+                                    <td><span class="text-nowrap">?<span title="\Psr\EventDispatcher\EventDispatcherInterface">EventDispatcherInterface</span></td>
                                     <td><i></i></td>
                                     <td>Event dispatcher</td>
                                 </tr>
                                                             <tr>
                                     <td>$twig</td>
-                                    <td>\Twig\Environment</td>
+                                    <td><span class="text-nowrap"><span title="\Twig\Environment">Environment</span></td>
                                     <td><i></i></td>
                                     <td>Render environment</td>
                                 </tr>
@@ -221,13 +224,101 @@ templates and twig environment with given config (cache,..).</td>
             </div>
 </div>
 <div class="py-3">&nbsp;</div>
+                            <a name="method-print"></a>
+<div class="row">
+    <div class="col detail-item method">
+        <div class="d-flex method-map map py-2 px-1" id="method-print">
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">print</span><span class="hljs-params">(ProjectInterface $project)</span>: <span class="hljs-title">void</span></span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_htmlprinter.html#line137">137</a>
+                            </div>
+                                                    </div>
+
+                    <div class="method-description mt-2 p-2">
+                <p>Print function used by DOG the documentation generator.</p>
+
+
+                                    <small>
+                        
+                    </small>
+                            </div>
+        
+                    <div class="method-arguments method-parameters px-2">
+                <h4 class="h5">Parameters</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th width="20%">Parameter</th>
+                                <th width="10%">Type</th>
+                                <th width="10%">Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                            <tr>
+                                    <td>$project</td>
+                                    <td><span class="text-nowrap"><span title="\Klitsche\Dog\ProjectInterface">ProjectInterface</span></td>
+                                    <td><i></i></td>
+                                    <td>the project structure of which we will generate the documentation</td>
+                                </tr>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        
+                    <div class="method-return px-2">
+                <h4 class="h5">Return value</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                                                    <td width="100%">void</td>
+                                                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+</div>
+<div class="py-3">&nbsp;</div>
+                            <a name="method-getPrinterRootDir"></a>
+<div class="row">
+    <div class="col detail-item method">
+        <div class="d-flex method-map map py-2 px-1" id="method-getPrinterRootDir">
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPrinterRootDir</span><span class="hljs-params">()</span>: <span class="hljs-title">string</span></span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_htmlprinter.html#line524">524</a>
+                            </div>
+                                                    </div>
+
+        
+        
+                    <div class="method-return px-2">
+                <h4 class="h5">Return value</h4>
+
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                                                    <td width="100%">string</td>
+                                                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+</div>
+<div class="py-3">&nbsp;</div>
                             <a name="method-create"></a>
 <div class="row">
     <div class="col detail-item method">
         <div class="d-flex method-map map py-2 px-1" id="method-create">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">create</span><span class="hljs-params">(\Klitsche\Dog\ConfigInterface $config, \Psr\EventDispatcher\EventDispatcherInterface $dispatcher)</span>: <span class="hljs-title">self</span></span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_htmlprinter.html#line534">534</a>
+            <div class="flex-grow-1" style="min-width: 0;"><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">create</span><span class="hljs-params">(ConfigInterface $config, EventDispatcherInterface $dispatcher)</span>: <span class="hljs-title">self</span></span></code></div>
+                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end text-nowrap ps-1 ps-2 pe-1">
+                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_htmlprinter.html#line536">536</a>
                             </div>
                                                     </div>
 
@@ -257,13 +348,13 @@ templates and twig environment with given config (cache,..).</p>
                         <tbody>
                                                             <tr>
                                     <td>$config</td>
-                                    <td>\Klitsche\Dog\ConfigInterface</td>
+                                    <td><span class="text-nowrap"><span title="\Klitsche\Dog\ConfigInterface">ConfigInterface</span></td>
                                     <td><i></i></td>
                                     <td>Loaded configs from the user yaml file like cache dir</td>
                                 </tr>
                                                             <tr>
                                     <td>$dispatcher</td>
-                                    <td>\Psr\EventDispatcher\EventDispatcherInterface</td>
+                                    <td><span class="text-nowrap"><span title="\Psr\EventDispatcher\EventDispatcherInterface">EventDispatcherInterface</span></td>
                                     <td><i></i></td>
                                     <td>dispatcher for events</td>
                                 </tr>
@@ -288,97 +379,10 @@ templates and twig environment with given config (cache,..).</p>
             </div>
 </div>
 <div class="py-3">&nbsp;</div>
-                            <a name="method-getPrinterRootDir"></a>
-<div class="row">
-    <div class="col detail-item method">
-        <div class="d-flex method-map map py-2 px-1" id="method-getPrinterRootDir">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPrinterRootDir</span><span class="hljs-params">()</span>: <span class="hljs-title">string</span></span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_htmlprinter.html#line522">522</a>
-                            </div>
-                                                    </div>
-
-        
-        
-                    <div class="method-return px-2">
-                <h4 class="h5">Return value</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <tbody>
-                            <tr>
-                                                                    <td width="100%">string</td>
-                                                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            </div>
-</div>
-<div class="py-3">&nbsp;</div>
-                            <a name="method-print"></a>
-<div class="row">
-    <div class="col detail-item method">
-        <div class="d-flex method-map map py-2 px-1" id="method-print">
-            <div class="flex-grow-1"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">print</span><span class="hljs-params">(\Klitsche\Dog\ProjectInterface $project)</span>: <span class="hljs-title">void</span></span></code></pre></div>
-                                                                <div class="flex-shrink-1 extra-small font-style-italic text-end">
-                                at&nbsp;line <a href="source_csoellinger_doghtmlprinter_htmlprinter.html#line135">135</a>
-                            </div>
-                                                    </div>
-
-                    <div class="method-description mt-2 p-2">
-                <p>Print function used by DOG the documentation generator.</p>
-
-
-                                    <small>
-                        
-                    </small>
-                            </div>
-        
-                    <div class="method-arguments method-parameters px-2">
-                <h4 class="h5">Parameters</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th width="20%">Parameter</th>
-                                <th width="10%">Type</th>
-                                <th width="10%">Default</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                                                            <tr>
-                                    <td>$project</td>
-                                    <td>\Klitsche\Dog\ProjectInterface</td>
-                                    <td><i></i></td>
-                                    <td>the project structure of which we will generate the documentation</td>
-                                </tr>
-                                                    </tbody>
-                    </table>
-                </div>
-            </div>
-        
-                    <div class="method-return px-2">
-                <h4 class="h5">Return value</h4>
-
-                <div class="table-responsive">
-                    <table class="table table-sm">
-                        <tbody>
-                            <tr>
-                                                                    <td width="100%">void</td>
-                                                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            </div>
-</div>
-<div class="py-3">&nbsp;</div>
                         </div>
-    <div class="d-none d-md-block col-3">
-    <div class="w-100 border p-2 position-sticky" style="top: 2rem;">
+
+        <div class="d-none d-lg-block col-3">
+    <div class="w-100 border p-2 position-sticky" style="top: 1rem;">
         <div class="small text-muted">On this page</div>
 
                     <ul class="list-unstyled mb-0 small">
@@ -398,9 +402,9 @@ templates and twig environment with given config (cache,..).</p>
 
                         <ul>
                                                             <li><a href="#method-__construct" class="text-reset">__construct</a></li>
-                                                            <li><a href="#method-create" class="text-reset">create</a></li>
-                                                            <li><a href="#method-getPrinterRootDir" class="text-reset">getPrinterRootDir</a></li>
                                                             <li><a href="#method-print" class="text-reset">print</a></li>
+                                                            <li><a href="#method-getPrinterRootDir" class="text-reset">getPrinterRootDir</a></li>
+                                                            <li><a href="#method-create" class="text-reset">create</a></li>
                                                     </ul>
                     </li>
                             </ul>
@@ -410,15 +414,17 @@ templates and twig environment with given config (cache,..).</p>
 </div>
 </div>
 
-                <div class="row flex-grow-1"><div class="col">&nbsp;</div></div>
-                <div class="row">
-                    <div class="col text-muted text-end small">
-                        Generated by <a href="https://klitsche.github.io/dog/" target="_blank" class="text-reset text-decoration-underline">Dog, a slim source code documentation generator</a>.
-                        Printed with <a href="https://github.com/CSoellinger/dog-html-printer" target="_blank" class="text-reset text-decoration-underline">Dog-HtmlPrinter</a>.
+                            <div class="row flex-grow-1"><div class="col">&nbsp;</div></div>
+                            <div class="row">
+                                <div class="col text-muted text-end small">
+                                    Generated by <a href="https://klitsche.github.io/dog/" target="_blank" class="text-reset text-decoration-underline">Dog, a slim source code documentation generator</a>.
+                                    Printed with <a href="https://github.com/CSoellinger/dog-html-printer" target="_blank" class="text-reset text-decoration-underline">Dog-HtmlPrinter</a>.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
 
         <script>
