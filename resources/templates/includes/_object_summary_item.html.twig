@@ -1,0 +1,20 @@
+<div class="mt-2">&nbsp;</div>
+
+<a name="{{ name }}"></a>
+<div class="card {{ name }}">
+    <div class="card-header pl-2">
+        <h3 class="mb-0 h6">{{ headline }}</h3>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-sm table-striped mb-0 text-break">
+                <thead>
+                    {% block tableHead %}{% endblock %}
+                </thead>
+                <tbody>
+                    {% block tableBody %}{% endblock %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

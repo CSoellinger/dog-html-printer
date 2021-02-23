@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col detail-item {{ name }}">
         <div class="d-flex {{ name }}-map map py-2 px-1" id="{{ name }}-{{ method.name }}">
-            <div class="flex-grow-1">
+            <div class="flex-grow-1" style="min-width: 0;">
                 {%- apply highlightSource('php') -%}{% block map %}{% endblock %}{%- endapply -%}
             </div>
             {% block source %}{% endblock %}
@@ -38,7 +38,7 @@
                             {% for argument in method.arguments %}
                                 <tr>
                                     <td>{% if argument.isVariadic %}...{% endif %}{% if argument.byReference %}&amp;{% endif %}${{ argument.name }}</td>
-                                    <td>{{ argument.type|escape|linkFqsen|replace({'|': '|<wbr>'}) }}</td>
+                                    <td><span class="text-nowrap">{{ argument.type|linkFqsen|replace({'|': ' |</span> <span class="text-nowrap">'}) }}</td>
                                     <td><i>{{ argument.default }}</i></td>
                                     <td>{{ argument.description|resolveDocblockLinks }}</td>
                                 </tr>
@@ -58,10 +58,10 @@
                         <tbody>
                             <tr>
                                 {% if method.returnDescription %}
-                                    <td width="40%">{{ method.returnType|escape|linkFqsen|replace({'|': '|<wbr>'}) }}</td>
+                                    <td width="40%">{{ method.returnType|linkFqsen|replace({'|': ' | '}) }}</td>
                                     <td>{{ method.returnDescription|resolveDocblockLinks }}</td>
                                 {% else %}
-                                    <td width="100%">{{ method.returnType|escape|linkFqsen|replace({'|': '|<wbr>'}) }}</td>
+                                    <td width="100%">{{ method.returnType|linkFqsen|replace({'|': ' | '}) }}</td>
                                 {% endif %}
                             </tr>
                         </tbody>
