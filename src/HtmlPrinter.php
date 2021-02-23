@@ -359,7 +359,7 @@ class HtmlPrinter implements PrinterInterface
 
         return $this->renderFile(
             'objects.html.twig',
-            strtolower((string) (InflectorFactory::create()->build())->pluralize($elementType)) . '.html',
+            strtolower((InflectorFactory::create()->build())->pluralize($elementType)) . '.html',
             [
                 'objects' => $objects,
             ],
