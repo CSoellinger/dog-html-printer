@@ -48,6 +48,7 @@ use function array_slice;
 use function asort;
 use function class_exists;
 use function count;
+use function end;
 use function explode;
 use function html_entity_decode;
 use function implode;
@@ -65,6 +66,7 @@ use function strcmp;
 use function strlen;
 use function strpos;
 use function strtolower;
+use function substr_count;
 use function trim;
 use function uksort;
 use function usort;
@@ -476,6 +478,7 @@ class TwigUtil
                 switch (true) {
                     case $element instanceof Function_:
                         /** @var Function_ $element */
+                        $element = $element;
                         $link = sprintf(
                             '<a href="%s">%s</a>',
                             'functions.html#' . (string) $element->getName(),
@@ -487,6 +490,7 @@ class TwigUtil
                         $fileName = 'constants.html#' . (string) $element->getName();
 
                         /** @var Constant $element */
+                        $element = $element;
                         if ($element->isClassConstant()) {
                             $fileName = self::getElementFilename($element->getOwner()) .
                                 '#constant-' . (string) $element->getName();
@@ -505,6 +509,7 @@ class TwigUtil
                     case $element instanceof Interface_:
                     case $element instanceof Trait_:
                         /** @var Class_|Interface_|Trait_ $element */
+                        $element = $element;
                         $link = sprintf(
                             '<a href="%s" title="%s">%s</a>',
                             self::getElementFilename($element),
@@ -515,6 +520,7 @@ class TwigUtil
                         break;
                     case $element instanceof Fqsen:
                         /** @var Fqsen $element */
+                        $element = $element;
                         $link = sprintf(
                             '<a href="%s">%s</a>',
                             self::getElementFilename($element),
@@ -666,6 +672,7 @@ class TwigUtil
             case $element instanceof Interface_:
             case $element instanceof Trait_:
                 /** @var Class_|Interface_|Trait_ $element */
+                $element = $element;
                 $filename = strtolower(
                     $element->getElementType() . '_' .
                     str_replace('\\', '_', trim((string) $element->getFqsen(), '\\()')),
@@ -713,6 +720,7 @@ class TwigUtil
             }
 
             /** @var Class_|Interface_|Trait_ $element */
+            $element = $element;
             $fqsen = $element->getFqsen();
             $id = $fqsen->__toString();
 

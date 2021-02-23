@@ -12,6 +12,11 @@ use CSoellinger\Test\DogHtmlPrinter\CSoellingerTestCase;
  */
 class TwigUtilTest extends CSoellingerTestCase
 {
+    /**
+     * Undocumented function
+     *
+     * @return array<string,array<int,int|array<int,array<string,string|int|null>>>>
+     */
     public function provideTestMarkdownHeadingList(): array
     {
         return [
@@ -46,9 +51,13 @@ class TwigUtilTest extends CSoellingerTestCase
         ];
     }
 
-    /**
-     * @dataProvider provideTestMarkdownHeadingList
-     */
+     /**
+      * Undocumented function
+      *
+      * @param array<int,array<string,string|int|null>> $result
+      *
+      * @dataProvider provideTestMarkdownHeadingList
+      */
     public function testMarkdownHeadingList(int $minLevel, int $maxLevel, array $result): void
     {
         $markdown = "# Headline 1\n\n## Headline 1.1\n\n### Headline 1.1.1\n\n# Headline 2";
@@ -57,6 +66,11 @@ class TwigUtilTest extends CSoellingerTestCase
         $this->assertSame($test, $result);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return array<string,mixed>
+     */
     public function provideTestArrayListToTree(): array
     {
         return [
@@ -80,7 +94,7 @@ class TwigUtilTest extends CSoellingerTestCase
                             ],
                         ],
                     ],
-                    ['id' => 'lvl2', 'parent_id' => null]
+                    ['id' => 'lvl2', 'parent_id' => null],
                 ],
             ],
             'custom' => [
@@ -100,17 +114,24 @@ class TwigUtilTest extends CSoellingerTestCase
                                 'custom_id' => 'lvl1.1', 'custom_parent_id' => 'lvl1', 'custom_children' => [
                                     ['custom_id' => 'lvl1.1.1', 'custom_parent_id' => 'lvl1.1'],
                                 ],
-                            ]
+                            ],
                         ],
                     ],
                     ['custom_id' => 'lvl2', 'custom_parent_id' => null],
                 ],
-            ]
+            ],
         ];
     }
 
     /**
      * @dataProvider provideTestArrayListToTree
+     */
+
+    /**
+     * Undocumented function
+     *
+     * @param array<int,array<string,string|null>> $list
+     * @param array<int,mixed> $result
      */
     public function testArrayListToTree(
         string $idKey,
@@ -118,8 +139,7 @@ class TwigUtilTest extends CSoellingerTestCase
         string $childrenKey,
         array $list,
         array $result
-    ): void
-    {
+    ): void {
         $this->assertSame($result, TwigUtil::arrayListToTree($list, $idKey, $parentIdKey, $childrenKey));
     }
 }
