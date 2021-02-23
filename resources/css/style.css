@@ -20,6 +20,11 @@ a[title] {
     border-bottom: 1px dashed var(--bs-info);
 }
 
+span[title] {
+    border-bottom: 2px dashed var(--bs-gray);
+    cursor: help;
+}
+
 a[href^="http"] {
     padding-left: 14px;
     background-repeat: no-repeat;
@@ -108,12 +113,26 @@ h6:hover .heading-permalink {
     visibility: visible;
 }
 
-
-
 .bg-php {
     background-color: #8892bf;
 }
 
 .bg-php-dark {
     background-color: #4f5b93;
+}
+
+.detail-item.method code {
+    white-space: nowrap !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+}
+
+.object .table {
+    white-space: nowrap !important;
+}
+
+@media (min-width: 768px) {
+    .object .table {
+        white-space: normal !important;
+    }
 }
