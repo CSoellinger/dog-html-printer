@@ -117,7 +117,7 @@ class TwigUtil
 
         // Fetch all lines with headings
         $headings = array_filter(
-            (array) preg_grep('/^\s*\#{' . $minLevel . ',' . $maxLevel . '}\ /', explode("\n", $markdown)),
+            preg_grep('/^\s*\#{' . $minLevel . ',' . $maxLevel . '}\ /', explode("\n", $markdown)),
         );
         $data = [];
 
@@ -138,7 +138,7 @@ class TwigUtil
             $data[] = [
                 'id' => preg_replace('/\s/', '', trim($heading, '#')),
                 'parent_id' => $parentId ?: null,
-                'name' => (string) trim($heading, "# \t\n\r\0\x0B"),
+                'name' => trim($heading, "# \t\n\r\0\x0B"),
                 'lvl' => (int) $lvl,
             ];
         }
@@ -320,7 +320,7 @@ class TwigUtil
                     continue;
                 }
 
-                $data[(int) $key]['open'] = true;
+                $data[$key]['open'] = true;
 
                 /**
                  * @var array $selected
@@ -355,7 +355,7 @@ class TwigUtil
 
                 $value = preg_replace(
                     '/(' . preg_quote($fqsen) . ')/',
-                    (string) $name,
+                    $name,
                     (string) $value,
                 );
             }
@@ -514,7 +514,7 @@ class TwigUtil
                             '<a href="%s" title="%s">%s</a>',
                             self::getElementFilename($element),
                             trim($element->getFqsen()->__toString(), '\\()'),
-                            (string) $element->getName(),
+                            $element->getName(),
                         );
 
                         break;
@@ -524,7 +524,7 @@ class TwigUtil
                         $link = sprintf(
                             '<a href="%s">%s</a>',
                             self::getElementFilename($element),
-                            trim((string) $element->__toString(), '\\()') ?: 'global',
+                            trim($element->__toString(), '\\()') ?: 'global',
                         );
 
                         break;
@@ -684,7 +684,7 @@ class TwigUtil
 
                 break;
             case $element instanceof Fqsen:
-                $namespaceName = trim((string) $element->__toString(), '\\()') ?: 'global';
+                $namespaceName = trim($element->__toString(), '\\()') ?: 'global';
                 $filename = 'namespace_' .
                     strtolower(str_replace('\\', '_', $namespaceName));
 
