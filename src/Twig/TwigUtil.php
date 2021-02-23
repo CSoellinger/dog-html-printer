@@ -100,7 +100,7 @@ class TwigUtil
      * @param int         $minLevel Min heading level
      * @param int         $maxLevel Max heading level
      *
-     * @return list<array<string,?string>>
+     * @return array<int,array<string,?string>>
      *
      * @psalm-return list<array{id:?string,lvl:int,name:string,parent_id:?string}>
      */
@@ -165,9 +165,15 @@ class TwigUtil
             $highlighted = $hl->highlight($lang, $source);
         }
 
-        return "<pre><code class=\"hljs {$highlighted->language}\">" .
+        // return "<div class=\"text-break hljs {$highlighted->language}\">" .
+        //     trim((string) $highlighted->value) .
+        //     '</div>';
+        // return "<code class=\"hljs {$highlighted->language}\">" .
+        //     trim((string) $highlighted->value) .
+        //     '</code>';
+        return "<code class=\"hljs {$highlighted->language}\">" .
             trim((string) $highlighted->value) .
-            '</code></pre>';
+            '</code>';
     }
 
     /**
@@ -235,7 +241,7 @@ class TwigUtil
      *
      * @param array<string> $unsetFields
      *
-     * @return array<int, array<string, (bool|int|string|null)>>
+     * @return array<int,array<string,bool|int|string|null>>
      */
     public static function getElementsList(array $unsetFields = []): array
     {
@@ -339,23 +345,17 @@ class TwigUtil
         }
 
         $values = explode('|', $value);
-        $fqsenKeys = array_keys(self::getFqsenIndex());
 
         foreach ($values as $fqsen) {
-            if (in_array($fqsen, $fqsenKeys) === true) {
-                $element = self::getFqsenIndex()[$fqsen];
-
-                if ($element === null) {
-                    continue;
-                }
+            if (substr_count($fqsen, '\\') >= 2) {
+                $fqsenParts = explode('\\', $fqsen);
+                $name = end($fqsenParts);
 
                 $value = preg_replace(
                     '/(' . preg_quote($fqsen) . ')/',
-                    (string) $element->getName(),
+                    (string) $name,
                     (string) $value,
                 );
-
-                continue;
             }
         }
 
@@ -461,7 +461,7 @@ class TwigUtil
         $fqsenKeys = array_keys(self::getFqsenIndex());
 
         foreach ($values as $fqsen) {
-            $fqsen = str_replace(['[', ']'], '', $fqsen);
+            $fqsen = trim($fqsen, '[]?');
 
             if (in_array($fqsen, $fqsenKeys) === true) {
                 /** @var ElementInterface|Fqsen|null $element */
@@ -495,8 +495,8 @@ class TwigUtil
                         $link = sprintf(
                             '<a href="%s" title="%s">%s</a>',
                             $fileName,
-                            // trim($element->getFqsen()->__toString(), '\\()'),
-                            '',
+                            trim($element->getFqsen()->__toString(), '\\()'),
+                            // '',
                             (string) $element->getName(),
                         );
 
@@ -552,7 +552,22 @@ class TwigUtil
                     continue;
                 }
             }
+
+            if (substr_count($fqsen, '\\') >= 2) {
+                $fqsenParts = explode('\\', $fqsen);
+                $name = end($fqsenParts);
+
+                $value = preg_replace(
+                    '/(' . preg_quote($fqsen) . ')/',
+                    "<span title=\"{$fqsen}\">{$name}</span>",
+                    (string) $value,
+                );
+
+                continue;
+            }
         }
+
+        // $value = str_replace('|', '&nbsp;|&nbsp;', $value);
 
         return $value;
     }
@@ -681,7 +696,7 @@ class TwigUtil
      *
      * @param string[] $unsetFields
      *
-     * @return list<array<string, (bool|string|null)>>
+     * @return array<int,array<string,bool|string|null>>
      */
     private static function getElementsListByNamespace(Fqsen $ns, array $unsetFields = []): array
     {
