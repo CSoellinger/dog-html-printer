@@ -2,16 +2,34 @@
 
 **HTML printer for [Dog](https://github.com/klitsche/dog), a simple code documentation generator.**
 
-[![Source Code](https://img.shields.io/badge/source-csoellinger/dog--html--printer-blue.svg?style=flat-square)](https://github.com/csoellinger/dog-html-printer)
-[![Download Package](https://img.shields.io/packagist/v/csoellinger/dog-html-printer.svg?style=flat-square&label=release)](https://packagist.org/packages/csoellinger/dog-html-printer)
-[![PHP Programming Language](https://img.shields.io/packagist/php-v/csoellinger/dog-html-printer.svg?style=flat-square&colorB=%238892BF)](https://php.net)
-[![Read License](https://img.shields.io/packagist/l/csoellinger/dog-html-printer.svg?style=flat-square&colorB=darkcyan)](https://github.com/csoellinger/dog-html-printer/blob/master/LICENSE)
-[![Package downloads on Packagist](https://img.shields.io/packagist/dt/csoellinger/dog-html-printer.svg?style=flat-square&colorB=darkmagenta)](https://packagist.org/packages/csoellinger/dog-html-printer/stats)
-<!-- [![Build Status](https://travis-ci.com/csoellinger/dog-html-printer.svg?branch=main)](https://travis-ci.com/csoellinger/dog-html-printer) -->
-<!-- [![Build Status](https://img.shields.io/github/workflow/status/csoellinger/dog-html-printer/CI?label=CI&logo=github&style=flat-square)](https://github.com/csoellinger/dog-html-printer/actions?query=workflow%3ACI) -->
-<!-- [![Codecov Code Coverage](https://img.shields.io/codecov/c/gh/csoellinger/dog-html-printer?label=codecov&logo=codecov&style=flat-square)](https://codecov.io/gh/csoellinger/dog-html-printer) -->
-<!-- [![Psalm Type Coverage](https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Fcsoellinger%2Fdog-html-printer%2Fcoverage)](https://shepherd.dev/github/csoellinger/dog-html-printer) -->
-<!-- [![Chat with the maintainers](https://img.shields.io/badge/phpc.chat-%23csoellinger-darkslateblue?style=flat-square)](https://phpc.chat/channel/csoellinger) -->
+[![Source Code][source-badge]][source]
+[![Download Package][packagist-badge]][packagist]
+[![PHP Programming Language][php-badge]][php]
+[![Read License][license-badge]][license]
+[![Package downloads on Packagist][downloads-badge]][downloads]
+[![Build status][build-badge]][build]
+[![Psalm Type Coverage][psalm-badge]][psalm]
+<!-- [![Codecov Code Coverage][codecov-badge]][codecov] -->
+<!-- [![Chat with the maintainers][chat-badge]][chat] -->
+
+[source]: https://github.com/csoellinger/dog-html-printer
+[source-badge]: https://img.shields.io/badge/source-csoellinger/dog--html--printer-blue.svg?style=flat-square
+[packagist]: https://packagist.org/packages/csoellinger/dog-html-printer
+[packagist-badge]: https://img.shields.io/packagist/v/csoellinger/dog-html-printer.svg?style=flat-square&label=release
+[php]: https://php.net
+[php-badge]: https://img.shields.io/packagist/php-v/csoellinger/dog-html-printer.svg?style=flat-square&colorB=%238892BF
+[license]: https://github.com/csoellinger/dog-html-printer/blob/master/LICENSE
+[license-badge]: https://img.shields.io/packagist/l/csoellinger/dog-html-printer.svg?style=flat-square&colorB=darkcyan
+[downloads]: https://packagist.org/packages/csoellinger/dog-html-printer/stats
+[downloads-badge]: https://img.shields.io/packagist/dt/csoellinger/dog-html-printer.svg?style=flat-square&colorB=darkmagenta
+[build]: https://github.com/csoellinger/dog-html-printer/actions?query=workflow%3ACI
+[build-badge]: https://img.shields.io/github/workflow/status/csoellinger/dog-html-printer/CI?label=CI&logo=github&style=flat-square
+[codecov]: https://codecov.io/gh/csoellinger/dog-html-printer
+[codecov-badge]: https://img.shields.io/codecov/c/gh/csoellinger/dog-html-printer?label=codecov&logo=codecov&style=flat-square
+[psalm]: https://shepherd.dev/github/csoellinger/dog-html-printer
+[psalm-badge]: https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Fcsoellinger%2Fdog-html-printer%2Fcoverage
+[chat]: https://phpc.chat/channel/csoellinger
+[chat-badge]: https://img.shields.io/badge/phpc.chat-%23csoellinger-darkslateblue?style=flat-square
 
 - [About](#about)
 - [Installation](#installation)
@@ -146,5 +164,4 @@ If you found a bug or have an idea feel free to post it here on github.
 ## Copyright and License
 
 The csoellinger/dog-html-printer library is copyright © [Christopher Söllinger](https://github.com/CSoellinger)
-and licensed for use under the terms of the
-MIT License (MIT). Please see [LICENSE](LICENSE) for more information.
+and licensed for use under the terms of the MIT License (MIT). Please see [LICENSE](LICENSE) for more information.
