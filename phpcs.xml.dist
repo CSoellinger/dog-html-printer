@@ -10,7 +10,6 @@
     <file>./tests</file>
 
     <rule ref="Ramsey"/>
-<!-- ignoreSpacesInComment -->
 
     <rule ref="SlevomatCodingStandard.Whitespaces.DuplicateSpaces">
         <properties>
