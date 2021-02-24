@@ -23,4 +23,4 @@ printerConfig:
 outputDir: 'docs/html'
 cacheDir: 'build/cache'
 # Enable or disable debug mode - helps when tweaking templates
-debug: true
+debug: false
