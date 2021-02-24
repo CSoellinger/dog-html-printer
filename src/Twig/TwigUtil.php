@@ -114,11 +114,16 @@ class TwigUtil
 
         // Remove code blocks cause they can have heading symbols (#)
         $markdown = (string) preg_replace('/(```[a-z]*\n[\s\S]*?\n```)/', '', $markdown);
+        $headings = preg_grep('/^\s*\#{' . $minLevel . ',' . $maxLevel . '}\ /', explode("\n", $markdown));
+
+        if ((bool) $headings === false) {
+            return [];
+        }
 
         // Fetch all lines with headings
-        $headings = array_filter(
-            preg_grep('/^\s*\#{' . $minLevel . ',' . $maxLevel . '}\ /', explode("\n", $markdown)),
-        );
+        /** @var array<int,string> $headings */
+        $headings = $headings;
+        $headings = array_filter($headings);
         $data = [];
 
         foreach ($headings as $heading) {
@@ -320,6 +325,8 @@ class TwigUtil
                     continue;
                 }
 
+                /** @var int $key */
+                $key = $key;
                 $data[$key]['open'] = true;
 
                 /**
@@ -510,11 +517,13 @@ class TwigUtil
                     case $element instanceof Trait_:
                         /** @var Class_|Interface_|Trait_ $element */
                         $element = $element;
+                        /** @var string $name */
+                        $name = $element->getName();
                         $link = sprintf(
                             '<a href="%s" title="%s">%s</a>',
                             self::getElementFilename($element),
                             trim($element->getFqsen()->__toString(), '\\()'),
-                            $element->getName(),
+                            $name,
                         );
 
                         break;
