@@ -33,7 +33,9 @@
         "wyrihaximus/html-compress": "^4.1"
     },
     "require-dev": {
-        "ramsey/devtools": "^1.5"
+        "phpstan/phpstan": "^0.12.78",
+        "ramsey/devtools": "^1.5",
+        "vimeo/psalm": "^4.4"
     },
     "config": {
         "sort-packages": true
